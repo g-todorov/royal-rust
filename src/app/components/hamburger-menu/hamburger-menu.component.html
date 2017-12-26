@@ -1,0 +1,39 @@
+<div class="hamburger-menu-wrapper">
+  <div class="hamburger-menu-button" [@hamburgerMenuState]="hamburgerMenuState" (click)="toggleHamburgerMenu(hamburgerMenuState)">
+    <span class="menu-top-line" [@topLineState]="hamburgerMenuState"></span>
+    <span class="menu-middle-line" [@middleLineState]="hamburgerMenuState"></span>
+    <span class="menu-bottom-line" [@bottomLineState]="hamburgerMenuState"></span>
+  </div>
+  <div class="hamburger-menu-content" [@hamburgerMenuContentState]="hamburgerMenuState">
+    <div class="menu-item-wrapper">
+      <div class="menu-item shop">
+        shop
+      </div>
+      <div class="menu-item-line"></div>
+    </div>
+    <div class="menu-item-wrapper">
+      <div class="menu-item videos">
+        videos
+      </div>
+      <div class="menu-item-line"></div>
+    </div>
+    <div class="menu-item-wrapper">
+      <div class="menu-item music">
+        music
+      </div>
+      <div class="menu-item-line"></div>
+    </div>
+    <div class="menu-item-wrapper">
+      <div class="menu-item bio">
+        bio
+      </div>
+      <div class="menu-item-line"></div>
+    </div>
+    <div class="menu-item-wrapper" style="display: none">
+      <div class="menu-item placeholder">
+        placeholder
+      </div>
+      <div class="menu-item-line"></div>
+    </div>
+  </div>
+</div>
