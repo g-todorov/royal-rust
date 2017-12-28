@@ -3,10 +3,10 @@ import { trigger, state, animate, transition, style, query, animateChild } from 
 export const hamburgerMenuState =
   trigger('hamburgerMenuState', [
     state('closed', style ({
-      background: 'red'
+      // background: 'yellow'
     })),
     state('opened', style ({
-      background: 'black'
+      // background: 'black'
     })),
     transition ('closed <=> opened', [
       // query('@topLineState', [

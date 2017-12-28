@@ -26,7 +26,7 @@ export class FullscreenSliderComponent implements OnInit {
         this.currentVideoLink = this.videoLinks[0]
       }
 
-      console.log(this.currentVideoLink);
+      // console.log(this.currentVideoLink);
     }, 3000)
   }
 

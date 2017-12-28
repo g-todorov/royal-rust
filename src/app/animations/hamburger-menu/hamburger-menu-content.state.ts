@@ -3,7 +3,7 @@ import { trigger, state, animate, transition, style, query, animateChild, group}
 export const hamburgerMenuContentState =
   trigger('hamburgerMenuContentState', [
     state('closed', style ({
-      background: 'red',
+      // background: 'red',
       transform: 'translateX(-100%)'
     })),
     state('opened', style ({
