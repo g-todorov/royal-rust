@@ -13,12 +13,21 @@ export const hamburgerMenuContentState =
     transition ('closed => opened', [
       group([
         animate('300ms ease-in'),
-        query('.menu-item-line', [
-          style({
-            transform: 'translateX(-100%)',
-          }),
-          animate('300ms 300ms ease-in-out')
-        ], { optional: true }),
+        group([
+          query('.menu-logo', [
+            style({
+              transform: 'translateX(70%)',
+              opacity: 0
+            }),
+            animate('300ms 300ms ease-in-out')
+          ], { optional: true }),
+          query('.menu-item-line', [
+            style({
+              transform: 'translateX(-100%)'
+            }),
+            animate('300ms 300ms ease-in-out')
+          ], { optional: true }),
+        ])  
       ])
     ]),
     transition ('opened => closed', [

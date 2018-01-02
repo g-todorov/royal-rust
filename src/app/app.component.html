@@ -1,4 +1,9 @@
 <div class="app-wrapper">
   <app-hamburger-menu></app-hamburger-menu>
-  <app-fullscreen-slider></app-fullscreen-slider>
+  <!-- <div class="router-wrapper" [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+  </div> -->
+  <div class="router-wrapper">
+      <router-outlet></router-outlet>
+  </div>
 </div>

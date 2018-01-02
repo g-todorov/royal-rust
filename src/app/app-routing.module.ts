@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // import { ItemDetailsComponent } from './item-details/item-details.component';
-// import { SectionComponent } from './section/section.component';
+import { ShopPageComponent } from './shop-page/shop-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 // import { ItemsService } from './items.service';
 
 const appRoutes: Routes = [
-  // { path: ':section', component: SectionComponent, data: { state: 'section' }},
-  // { path: ':section/:name', component: ItemDetailsComponent, data: { state: 'details' }}
+  { path: '', component: LandingPageComponent, data: { state: 'landing' }},
+  { path: ':shop', component: ShopPageComponent, data: { state: 'shop' }}
 ];
 
 @NgModule({

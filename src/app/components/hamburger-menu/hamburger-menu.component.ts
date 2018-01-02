@@ -43,4 +43,8 @@ export class HamburgerMenuComponent implements OnInit {
     }
   }
 
+  // onMenuItemClicked() {
+
+  // }
+
 }

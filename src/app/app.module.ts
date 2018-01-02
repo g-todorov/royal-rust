@@ -5,14 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component'
-import { FullscreenSliderComponent } from './components/fullscreen-slider/fullscreen-slider.component'
+import { FullscreenSliderComponent } from './components/fullscreen-slider/fullscreen-slider.component';
+import { ShopPageComponent } from './shop-page/shop-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HamburgerMenuComponent,
-    FullscreenSliderComponent
+    FullscreenSliderComponent,
+    ShopPageComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

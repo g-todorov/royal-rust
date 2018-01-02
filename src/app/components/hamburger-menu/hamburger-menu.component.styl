@@ -15,31 +15,47 @@
   width 100vw
   z-index 20
 
-  .menu-item
-    cursor pointer
-    line-height .9
-    margin-bottom -15px
-    overflow hidden
-    transform translateY(0)
-    transition all .3s
+  .menu-items
+    // margin-left 10%
+    transform translateX(30%)
+    
+    .menu-item
+      cursor pointer
+      line-height .9
+      margin-bottom -15px
+      overflow hidden
+      transform translateY(0)
+      transform translateX(0)
+      transition all .3s
+      position relative
 
-  .menu-item-line
-    background white
-    height 5px
-    width 100%
+      &.active
+        position fixed
+        transform translateX(110vw)
 
-  .menu-item-wrapper
-    margin-left 10%
-    overflow hidden
-    padding-top 10px
+    .menu-item-line
+      background white
+      height 5px
+      width 100%
 
-  .menu-item:hover
-    transform translateY(-10px)
-    transition all .3s
+    .menu-item-wrapper
+      overflow hidden
+      padding-top 10px
+
+    .menu-item:not(.active):hover
+      transform translateY(-10px)
+      transition all .3s
+
+  .menu-logo
+    // transform translateX(100%)
+    position absolute
+    right 20%
+    background red
+    width 300px
+    height 500px
 
 .hamburger-menu-button
   align-items  center
-  // background red
   display flex
   height 50px
   justify-content center
