@@ -6,9 +6,8 @@
   </div>
   <!-- <div *ngIf="hamburgerMenuState === 'opened'" class="hamburger-menu-breadcrumb"> -->
   <div class="hamburger-menu-breadcrumb">
-    <div class="menu-items">
       <div class="menu-item-wrapper">
-          <div class="menu-item shop">
+        <div class="menu-item shop">
             shop
           </div>
           <!-- <div class="menu-item-line"></div> -->
@@ -37,36 +36,35 @@
           </div>
           <!-- <div class="menu-item-line"></div> -->
         </div>
-    </div>
   </div>
   <div class="hamburger-menu-content-sublayer" [@hamburgerMenuSublayerState]="hamburgerMenuState"></div>
   <div class="hamburger-menu-content" [@hamburgerMenuContentState]="hamburgerMenuState">
     <div class="menu-items">
-      <div class="menu-item-wrapper">
+      <div class="menu-item-wrapper shop">
           <div class="menu-item shop" routerLink="/shop" routerLinkActive="active" (click)="toggleHamburgerMenu(hamburgerMenuState)">
             shop
           </div>
           <div class="menu-item-line"></div>
         </div>
-        <div class="menu-item-wrapper">
+        <div class="menu-item-wrapper videos">
           <div class="menu-item videos">
             videos
           </div>
           <div class="menu-item-line"></div>
         </div>
-        <div class="menu-item-wrapper">
+        <div class="menu-item-wrapper music">
           <div class="menu-item music">
             music
           </div>
           <div class="menu-item-line"></div>
         </div>
-        <div class="menu-item-wrapper">
+        <div class="menu-item-wrapper bio">
           <div class="menu-item bio">
             bio
           </div>
           <div class="menu-item-line"></div>
         </div>
-        <div class="menu-item-wrapper" style="display: none">
+        <div class="menu-item-wrapper placeholder" style="display: none">
           <div class="menu-item placeholder">
             placeholder
           </div>

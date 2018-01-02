@@ -23,22 +23,42 @@
 
 .hamburger-menu-content
 .hamburger-menu-breadcrumb
-  align-items flex-start
+  // align-items flex-start
   background black
   color white
-  display flex
-  flex-direction column
+  // display flex
+  // flex-direction column
   font-size 5rem
   height 100vh
-  justify-content center
+  // justify-content center
   position absolute
   text-transform uppercase
   width 100vw
   z-index 20
 
-  .menu-items
-    // margin-left 10%
-    transform translateX(30%)
+  .menu-item-line
+    background white
+    height 5px
+    width 100%
+
+  .menu-item-wrapper
+    overflow hidden
+    padding-top 10px
+    position absolute
+    width calc(100% - 100px)
+    left 100px
+
+    &.shop
+      transform translateY(40px)
+
+    &.videos
+      transform translateY(100px)
+
+    &.music
+      transform translateY(160px)
+    
+    &.bio
+      transform translateY(220px)
 
     .menu-item
       cursor pointer
@@ -54,30 +74,26 @@
       //   position fixed
       //   transform translateX(110vw)
 
-    .menu-item-line
-      background white
-      height 5px
-      width 100%
-
-    .menu-item-wrapper
-      overflow hidden
-      padding-top 10px
-
-    // .menu-item:not(.active):hover
-    //   transform translateY(-10px)
-    //   transition all .3s
+      
+      // .menu-item:not(.active):hover
+      //   transform translateY(-10px)
+      //   transition all .3s
 
     .menu-item:hover
       transform translateY(-10px)
       transition all .3s
 
   .menu-logo
-    // transform translateX(100%)
+    // transform translateY(100%)
     position absolute
+    top 40px
     right 20%
-    background red
-    width 300px
-    height 500px
+    background-image url('/assets/logos/logo.png')
+    background-size contain
+    background-repeat no-repeat
+    // background url('/assets/backgrounds/main-background.png')
+    width 30vw
+    height 50vh
 
 .hamburger-menu-button
   align-items  center
