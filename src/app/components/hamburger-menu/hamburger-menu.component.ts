@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 
 import { hamburgerMenuState } from '../../animations/hamburger-menu/hamburger-menu.state';
 import { hamburgerMenuContentState } from '../../animations/hamburger-menu/hamburger-menu-content.state';
@@ -24,9 +25,19 @@ export class HamburgerMenuComponent implements OnInit {
   hamburgerMenuState = 'closed';
   munuItemHoverState = 'notHovered';
 
-  constructor() { }
+  breadcrumbShopState = 'inactive';
+  breadcrumbVideosState = 'inactive';
+  breadcrumbMusicState = 'inactive';
+  breadcrumbBioState = 'inactive';
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.router.events.forEach((event) => {
+      if (event instanceof RoutesRecognized) {
+
+      }
+    });
   }
 
   toggleHamburgerMenu(state) {
