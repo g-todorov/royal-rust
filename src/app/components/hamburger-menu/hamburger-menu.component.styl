@@ -1,3 +1,5 @@
+@import 'variables'
+
 $breadcrumb-space = 40px
 $menu-first-item-space = 250px
 $menu-item-height = 70px
@@ -12,7 +14,6 @@ $menu-item-height = 70px
   position absolute
   text-transform uppercase
   width 100vw
-  // z-index 20
 
   .menu-item-wrapper
     overflow hidden
@@ -20,7 +21,6 @@ $menu-item-height = 70px
     position absolute
     width calc(100% - 100px)
     left 100px
-    // display none
     transition all .3s
 
     &.shop
@@ -35,11 +35,15 @@ $menu-item-height = 70px
     &.bio
       transform translateY($menu-first-item-space + $menu-item-height * 3)
 
-    &.active.closed
-      // display block
-      transform translateY($breadcrumb-space)
+    &.active
       z-index 21
+
+    &.active.closed
+      transform translateY($breadcrumb-space)
       transition all .3s
+
+    &.active.opened
+      visibility hidden
 
     .menu-item
       cursor pointer
@@ -129,6 +133,7 @@ $menu-item-height = 70px
   display flex
   height 50px
   justify-content center
+  margin $space
   position absolute
   width 50px
   z-index 21

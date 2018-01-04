@@ -6,12 +6,12 @@
   </div>
   <!-- <div *ngIf="hamburgerMenuState === 'opened'" class="hamburger-menu-breadcrumb"> -->
   <div class="hamburger-menu-breadcrumb">
-    <div class="menu-item-wrapper shop"  [ngClass]="hamburgerMenuState" routerLink="/shop" routerLinkActive="active">
+    <div class="menu-item-wrapper shop" [ngClass]="hamburgerMenuState" routerLink="/shop" routerLinkActive="active">
       <div class="menu-item shop">
-          shop
+        shop
       </div>
     </div>
-    <div class="menu-item-wrapper videos">
+    <div class="menu-item-wrapper videos" [ngClass]="hamburgerMenuState" routerLink="/videos" routerLinkActive="active">
       <div class="menu-item">
         videos
       </div>
@@ -41,7 +41,7 @@
           </div>
           <div class="menu-item-line"></div>
         </div>
-        <div class="menu-item-wrapper videos">
+        <div class="menu-item-wrapper videos" routerLink="/videos" routerLinkActive="active" (click)="toggleHamburgerMenu(hamburgerMenuState)">
           <div class="menu-item videos">
             videos
           </div>

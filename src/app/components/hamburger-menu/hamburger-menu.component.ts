@@ -8,6 +8,8 @@ import { middleLineState } from '../../animations/hamburger-menu/middle-line.sta
 import { bottomLineState } from '../../animations/hamburger-menu/bottom-line.state';
 import { topLineState } from '../../animations/hamburger-menu/top-line.state';
 
+import { AnimationsService } from '../../services/animations.service';
+
 @Component({
   selector: 'app-hamburger-menu',
   templateUrl: './hamburger-menu.component.html',
@@ -30,7 +32,7 @@ export class HamburgerMenuComponent implements OnInit {
   breadcrumbMusicState = 'inactive';
   breadcrumbBioState = 'inactive';
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private hamburgerService: AnimationsService) { }
 
   ngOnInit() {
     this.router.events.forEach((event) => {
@@ -38,23 +40,28 @@ export class HamburgerMenuComponent implements OnInit {
 
       }
     });
+
+    this.hamburgerService.change.subscribe(state => {
+      this.hamburgerMenuState = state;
+    });
   }
 
   toggleHamburgerMenu(state) {
-    if (state === 'closed') {
-      this.hamburgerMenuState = 'opened';
-    } else if (state === 'opened') {
-      this.hamburgerMenuState = 'closed';
-    }
+    // if (state === 'closed') {
+    //   this.hamburgerMenuState = 'opened';
+    // } else if (state === 'opened') {
+    //   this.hamburgerMenuState = 'closed';
+    // }
+    this.hamburgerService.toggle(state);
   }
 
-  onMenuItemMouseEnter(state) {
-    if (state === 'notHovered') {
-      this.munuItemHoverState = 'hovered';
-    } else if (state === 'hovered') {
-      this.munuItemHoverState = 'notHovered';
-    }
-  }
+  // onMenuItemMouseEnter(state) {
+  //   if (state === 'notHovered') {
+  //     this.munuItemHoverState = 'hovered';
+  //   } else if (state === 'hovered') {
+  //     this.munuItemHoverState = 'notHovered';
+  //   }
+  // }
 
   // onMenuItemClicked() {
 
