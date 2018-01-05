@@ -10,6 +10,9 @@ import { ShopPageComponent } from './shop-page/shop-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 import { AnimationsService } from './services/animations.service';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping-cart-button/shopping-cart-button.component';
+import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { AnimationsService } from './services/animations.service';
     HamburgerMenuComponent,
     FullscreenSliderComponent,
     ShopPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ShoppingCartComponent,
+    ShoppingCartButtonComponent,
+    ShoppingCartContentComponent
   ],
   imports: [
     BrowserModule,
