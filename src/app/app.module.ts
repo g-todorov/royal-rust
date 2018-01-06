@@ -13,6 +13,7 @@ import { AnimationsService } from './services/animations.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping-cart-button/shopping-cart-button.component';
 import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
+import { ShoppingCartSublayerComponent } from './components/shopping-cart/shopping-cart-sublayer/shopping-cart-sublayer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ShoppingCartContentComponent } from './components/shopping-cart/shoppin
     LandingPageComponent,
     ShoppingCartComponent,
     ShoppingCartButtonComponent,
-    ShoppingCartContentComponent
+    ShoppingCartContentComponent,
+    ShoppingCartSublayerComponent
   ],
   imports: [
     BrowserModule,

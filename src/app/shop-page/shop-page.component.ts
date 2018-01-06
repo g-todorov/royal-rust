@@ -17,7 +17,7 @@ export class ShopPageComponent implements OnInit {
   constructor(private hamburgerService: AnimationsService) { }
 
   ngOnInit() {
-    this.hamburgerService.change.subscribe(state => {
+    this.hamburgerService.changeHamburgerMenuState.subscribe(state => {
       this.menuState = state;
     });
   }

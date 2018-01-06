@@ -41,7 +41,7 @@ export class HamburgerMenuComponent implements OnInit {
       }
     });
 
-    this.hamburgerService.change.subscribe(state => {
+    this.hamburgerService.changeHamburgerMenuState.subscribe(state => {
       this.hamburgerMenuState = state;
     });
   }
@@ -52,7 +52,7 @@ export class HamburgerMenuComponent implements OnInit {
     // } else if (state === 'opened') {
     //   this.hamburgerMenuState = 'closed';
     // }
-    this.hamburgerService.toggle(state);
+    this.hamburgerService.toggleHamburgerMenuState(state);
   }
 
   // onMenuItemMouseEnter(state) {
