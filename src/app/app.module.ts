@@ -14,6 +14,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping-cart-button/shopping-cart-button.component';
 import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
 import { ShoppingCartSublayerComponent } from './components/shopping-cart/shopping-cart-sublayer/shopping-cart-sublayer.component';
+import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hamburger-menu-button/hamburger-menu-button.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ShoppingCartSublayerComponent } from './components/shopping-cart/shoppi
     ShoppingCartComponent,
     ShoppingCartButtonComponent,
     ShoppingCartContentComponent,
-    ShoppingCartSublayerComponent
+    ShoppingCartSublayerComponent,
+    HamburgerMenuButtonComponent
   ],
   imports: [
     BrowserModule,

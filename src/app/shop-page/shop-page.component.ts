@@ -2,24 +2,37 @@ import { Component, OnInit } from '@angular/core';
 
 import { AnimationsService } from '../services/animations.service';
 
-import { pageLandingState } from '../animations/page-landing.state';
+import { pageLoadingState } from '../animations/page-loading.state';
 
 
 @Component({
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.styl'],
-  animations: [pageLandingState]
+  animations: [pageLoadingState]
 })
 export class ShopPageComponent implements OnInit {
-  menuState = 'closed';
+  hamburgerMenuState = 'closed';
+  shoppingCartMenuState = 'closed';
 
-  constructor(private hamburgerService: AnimationsService) { }
+  constructor(private animtionService: AnimationsService) { }
 
   ngOnInit() {
-    this.hamburgerService.changeHamburgerMenuState.subscribe(state => {
-      this.menuState = state;
+    this.animtionService.changeHamburgerMenuState.subscribe(state => {
+      this.hamburgerMenuState = state;
     });
+
+    this.animtionService.changeShoppingCartState.subscribe(state => {
+      this.shoppingCartMenuState = state;
+    });
+  }
+
+  getPageState():string {
+    if (this.shoppingCartMenuState == "closed" && this.hamburgerMenuState == "closed") {
+      return 'opened'
+    } else {
+      return 'closed'
+    }
   }
 
 }

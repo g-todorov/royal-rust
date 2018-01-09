@@ -1,10 +1,6 @@
 <div class="hamburger-menu-wrapper">
-  <div class="hamburger-menu-button" (click)="toggleHamburgerMenu(hamburgerMenuState)">
-    <span class="menu-top-line" [@topLineState]="hamburgerMenuState"></span>
-    <span class="menu-middle-line" [@middleLineState]="hamburgerMenuState"></span>
-    <span class="menu-bottom-line" [@bottomLineState]="hamburgerMenuState"></span>
-  </div>
   <!-- <div *ngIf="hamburgerMenuState === 'opened'" class="hamburger-menu-breadcrumb"> -->
+  <app-hamburger-menu-button></app-hamburger-menu-button>
   <div class="hamburger-menu-breadcrumb">
     <div class="menu-item-wrapper shop" [ngClass]="hamburgerMenuState" routerLink="/shop" routerLinkActive="active">
       <div class="menu-item shop">

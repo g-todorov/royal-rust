@@ -4,9 +4,7 @@ import { ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import { hamburgerMenuState } from '../../animations/hamburger-menu/hamburger-menu.state';
 import { hamburgerMenuContentState } from '../../animations/hamburger-menu/hamburger-menu-content.state';
 import { hamburgerMenuSublayerState } from '../../animations/hamburger-menu/hamburger-menu-sublayer.state';
-import { middleLineState } from '../../animations/hamburger-menu/middle-line.state';
-import { bottomLineState } from '../../animations/hamburger-menu/bottom-line.state';
-import { topLineState } from '../../animations/hamburger-menu/top-line.state';
+
 
 import { AnimationsService } from '../../services/animations.service';
 
@@ -17,10 +15,7 @@ import { AnimationsService } from '../../services/animations.service';
   animations: [
     hamburgerMenuState,
     hamburgerMenuSublayerState,
-    hamburgerMenuContentState,
-    middleLineState,
-    bottomLineState,
-    topLineState
+    hamburgerMenuContentState
   ]
 })
 export class HamburgerMenuComponent implements OnInit {
@@ -46,14 +41,14 @@ export class HamburgerMenuComponent implements OnInit {
     });
   }
 
-  toggleHamburgerMenu(state) {
-    // if (state === 'closed') {
-    //   this.hamburgerMenuState = 'opened';
-    // } else if (state === 'opened') {
-    //   this.hamburgerMenuState = 'closed';
-    // }
-    this.hamburgerService.toggleHamburgerMenuState(state);
-  }
+  // toggleHamburgerMenu(state) {
+  //   // if (state === 'closed') {
+  //   //   this.hamburgerMenuState = 'opened';
+  //   // } else if (state === 'opened') {
+  //   //   this.hamburgerMenuState = 'closed';
+  //   // }
+  //   this.hamburgerService.toggleHamburgerMenuState(state);
+  // }
 
   // onMenuItemMouseEnter(state) {
   //   if (state === 'notHovered') {
