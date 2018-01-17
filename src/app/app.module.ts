@@ -9,7 +9,13 @@ import { FullscreenSliderComponent } from './components/fullscreen-slider/fullsc
 import { ShopPageComponent } from './shop-page/shop-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 import { AnimationsService } from './services/animations.service';
+import { ApiService } from './api-service/api.service'
+import { MessageService } from './api-service/message-service.service'
+import { InMemoryDataService } from './api-service/in-memory-data.service'
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping-cart-button/shopping-cart-button.component';
 import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
@@ -32,9 +38,20 @@ import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hambur
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
-  providers: [AnimationsService],
+  providers: [
+    AnimationsService,
+    ApiService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -41,14 +41,14 @@ export class HamburgerMenuComponent implements OnInit {
     });
   }
 
-  // toggleHamburgerMenu(state) {
-  //   // if (state === 'closed') {
-  //   //   this.hamburgerMenuState = 'opened';
-  //   // } else if (state === 'opened') {
-  //   //   this.hamburgerMenuState = 'closed';
-  //   // }
-  //   this.hamburgerService.toggleHamburgerMenuState(state);
-  // }
+  toggleHamburgerMenu(state) {
+    // if (state === 'closed') {
+    //   this.hamburgerMenuState = 'opened';
+    // } else if (state === 'opened') {
+    //   this.hamburgerMenuState = 'closed';
+    // }
+    this.hamburgerService.toggleHamburgerMenuState(state);
+  }
 
   // onMenuItemMouseEnter(state) {
   //   if (state === 'notHovered') {
