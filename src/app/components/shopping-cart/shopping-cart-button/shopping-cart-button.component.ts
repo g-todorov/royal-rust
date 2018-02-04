@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 import {AnimationsService} from '../../../services/animations.service'
 
@@ -8,14 +8,11 @@ import {AnimationsService} from '../../../services/animations.service'
   styleUrls: ['./shopping-cart-button.component.styl']
 })
 export class ShoppingCartButtonComponent implements OnInit {
-  shoppingCartContentState = 'closed';
+  @Input() shoppingCartContentState:string;
 
   constructor( private shoppingCartService: AnimationsService) { }
 
   ngOnInit() {
-    this.shoppingCartService.changeShoppingCartState.subscribe(state => {
-      this.shoppingCartContentState = state;
-    });
   }
 
   test() {

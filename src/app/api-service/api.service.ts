@@ -9,7 +9,8 @@ import { MessageService } from './message-service.service';
 @Injectable()
 export class ApiService {
 
-  private shoppingItemsUrl = 'api/shoppingItems';  // URL to web api
+  private shoppingItemsUrl = 'api/shoppingItems';
+  // private shoppingItemsUrl = 'http://127.0.0.1/data.php';
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -29,7 +30,7 @@ export class ApiService {
    */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
+      debugger
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 

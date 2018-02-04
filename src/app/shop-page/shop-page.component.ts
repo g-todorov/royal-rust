@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AnimationsService } from '../services/animations.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ApiService } from '../api-service/api.service';
 
 import { pageLoadingState } from '../animations/page-loading.state';
@@ -17,7 +18,7 @@ export class ShopPageComponent implements OnInit {
   shoppingCartMenuState = 'closed';
   shoppingItems:[any];
 
-  constructor(private animtionService: AnimationsService, private apiService: ApiService) { }
+  constructor(private animtionService: AnimationsService, private apiService: ApiService, private ShoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.animtionService.changeHamburgerMenuState.subscribe(state => {
@@ -29,7 +30,10 @@ export class ShopPageComponent implements OnInit {
     });
 
     this.getShoppingItems()
-    debugger
+  }
+
+  addItemToShoppingCart(item): void{
+    this.ShoppingCartService.setShoppingCartItem(item);
   }
 
   getShoppingItems(): void {
@@ -40,10 +44,10 @@ export class ShopPageComponent implements OnInit {
 
   getPageState():string {
     if (this.shoppingCartMenuState == "closed" && this.hamburgerMenuState == "closed") {
-      console.log('opened')
+      // console.log('opened')
       return 'opened'
     } else {
-      console.log('closed')
+      // console.log('closed')
       return 'closed'
     }
   }

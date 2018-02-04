@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AnimationsService } from './services/animations.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
 import { ApiService } from './api-service/api.service'
 import { MessageService } from './api-service/message-service.service'
 import { InMemoryDataService } from './api-service/in-memory-data.service'
@@ -21,6 +22,9 @@ import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping
 import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
 import { ShoppingCartSublayerComponent } from './components/shopping-cart/shopping-cart-sublayer/shopping-cart-sublayer.component';
 import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hamburger-menu-button/hamburger-menu-button.component';
+import { HamburgerMenuContentComponent } from './components/hamburger-menu/hamburger-menu-content/hamburger-menu-content.component';
+import { HamburgerMenuSublayerComponent } from './components/hamburger-menu/hamburger-menu-sublayer/hamburger-menu-sublayer.component';
+import { HamburgerMenuBreadcrumbComponent } from './components/hamburger-menu/hamburger-menu-breadcrumb/hamburger-menu-breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hambur
     ShoppingCartButtonComponent,
     ShoppingCartContentComponent,
     ShoppingCartSublayerComponent,
-    HamburgerMenuButtonComponent
+    HamburgerMenuButtonComponent,
+    HamburgerMenuContentComponent,
+    HamburgerMenuSublayerComponent,
+    HamburgerMenuBreadcrumbComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +56,7 @@ import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hambur
   ],
   providers: [
     AnimationsService,
+    ShoppingCartService,
     ApiService,
     MessageService
   ],

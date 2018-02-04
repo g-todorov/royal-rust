@@ -28,4 +28,9 @@ export class AnimationsService {
     this.changeShoppingCartState.emit(this.shoppingCartMenuState);
   }
 
+  // getPageState() Possible solution for initial page loading
+  getShopPageState() {
+
+  }
+
 }

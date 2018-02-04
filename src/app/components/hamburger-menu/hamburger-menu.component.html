@@ -1,68 +1,7 @@
 <div class="hamburger-menu-wrapper">
   <!-- <div *ngIf="hamburgerMenuState === 'opened'" class="hamburger-menu-breadcrumb"> -->
-  <app-hamburger-menu-button></app-hamburger-menu-button>
-  <div class="hamburger-menu-breadcrumb">
-    <div class="menu-item-wrapper shop" [ngClass]="hamburgerMenuState" routerLink="/shop" routerLinkActive="active">
-      <div class="menu-item shop">
-        shop
-      </div>
-    </div>
-    <div class="menu-item-wrapper videos" [ngClass]="hamburgerMenuState" routerLink="/videos" routerLinkActive="active">
-      <div class="menu-item">
-        videos
-      </div>
-    </div>
-    <div class="menu-item-wrapper music">
-      <div class="menu-item">
-        music
-      </div>
-    </div>
-    <div class="menu-item-wrapper bio">
-      <div class="menu-item">
-        bio
-      </div>
-    </div>
-    <div class="menu-item-wrapper placeholder" style="display: none">
-      <div class="menu-item">
-        placeholder
-      </div>
-    </div>
-  </div>
-  <div class="hamburger-menu-content-sublayer" [@hamburgerMenuSublayerState]="hamburgerMenuState"></div>
-  <div class="hamburger-menu-content" [@hamburgerMenuContentState]="hamburgerMenuState">
-    <div class="menu-items">
-      <div class="menu-item-wrapper shop" routerLink="/shop" routerLinkActive="active" (click)="toggleHamburgerMenu(hamburgerMenuState)">
-          <div class="menu-item shop">
-            shop
-          </div>
-          <div class="menu-item-line"></div>
-        </div>
-        <div class="menu-item-wrapper videos" routerLink="/videos" routerLinkActive="active" (click)="toggleHamburgerMenu(hamburgerMenuState)">
-          <div class="menu-item videos">
-            videos
-          </div>
-          <div class="menu-item-line"></div>
-        </div>
-        <div class="menu-item-wrapper music">
-          <div class="menu-item music">
-            music
-          </div>
-          <div class="menu-item-line"></div>
-        </div>
-        <div class="menu-item-wrapper bio">
-          <div class="menu-item bio">
-            bio
-          </div>
-          <div class="menu-item-line"></div>
-        </div>
-        <div class="menu-item-wrapper placeholder" style="display: none">
-          <div class="menu-item placeholder">
-            placeholder
-          </div>
-          <div class="menu-item-line"></div>
-        </div>
-    </div>
-    <div class="menu-logo">
-    </div>
-  </div>
+  <app-hamburger-menu-button [@hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-button>
+  <app-hamburger-menu-breadcrumb [@hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-breadcrumb>
+  <app-hamburger-menu-sublayer [hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-sublayer>
+  <app-hamburger-menu-content [hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-content>
 </div>

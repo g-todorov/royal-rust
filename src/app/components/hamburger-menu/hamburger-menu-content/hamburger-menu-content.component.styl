@@ -1,0 +1,63 @@
+@import 'variables'
+
+$breadcrumb-space = 40px
+$menu-first-item-space = 250px
+$menu-item-height = 70px
+
+.hamburger-menu-content
+  background black
+  color white
+  font-size 5rem
+  height 100vh
+  position absolute
+  text-transform uppercase
+  width 100vw
+  z-index 20
+
+  .menu-item-line
+    background white
+    height 5px
+    width 100%
+
+  .menu-item-wrapper
+    overflow hidden
+    padding-top 10px
+    position absolute
+    width calc(100% - 100px)
+    left 100px
+
+    &.shop
+      transform translateY($menu-first-item-space)
+
+    &.videos
+      transform translateY($menu-first-item-space + $menu-item-height)
+
+    &.music
+      transform translateY($menu-first-item-space + $menu-item-height * 2)
+
+    &.bio
+      transform translateY($menu-first-item-space + $menu-item-height * 3)
+
+    .menu-item
+      cursor pointer
+      line-height .9
+      margin-bottom -15px
+      overflow hidden
+      position relative
+      transform translateX(0)
+      transform translateY(0)
+      transition all .3s
+
+    .menu-item:hover
+      transform translateY(-10px)
+      transition all .3s
+
+  .menu-logo
+    background-image url('/assets/logos/logo.png')
+    background-repeat no-repeat
+    background-size contain
+    height 50vh
+    position absolute
+    right 20%
+    top $menu-first-item-space
+    width 30vw

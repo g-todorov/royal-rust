@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 import { AnimationsService } from '../../../services/animations.service'
 
@@ -17,15 +17,11 @@ import { topLineState } from '../../../animations/hamburger-menu/top-line.state'
   ]
 })
 export class HamburgerMenuButtonComponent implements OnInit {
+  @Input() hamburgerMenuContentState:string;
 
-  hamburgerMenuContentState = 'closed';
-
-  constructor( private  hamburgerMenuService: AnimationsService) { }
+  constructor(private hamburgerMenuService: AnimationsService) { }
 
   ngOnInit() {
-    this.hamburgerMenuService.changeHamburgerMenuState.subscribe(state => {
-      this.hamburgerMenuContentState = state;
-    });
   }
 
   test() {

@@ -3,8 +3,6 @@ import { ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 
 import { hamburgerMenuState } from '../../animations/hamburger-menu/hamburger-menu.state';
 import { hamburgerMenuContentState } from '../../animations/hamburger-menu/hamburger-menu-content.state';
-import { hamburgerMenuSublayerState } from '../../animations/hamburger-menu/hamburger-menu-sublayer.state';
-
 
 import { AnimationsService } from '../../services/animations.service';
 
@@ -14,7 +12,6 @@ import { AnimationsService } from '../../services/animations.service';
   styleUrls: ['./hamburger-menu.component.styl'],
   animations: [
     hamburgerMenuState,
-    hamburgerMenuSublayerState,
     hamburgerMenuContentState
   ]
 })
