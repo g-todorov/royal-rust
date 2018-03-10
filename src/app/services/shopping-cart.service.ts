@@ -5,17 +5,18 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class ShoppingCartService {
 
   shoppingCartStorage = this.getLocalStorageItem('shoppingItems');
-  shoppingCartItems = new BehaviorSubject(this.shoppingCartStorage); 
+  private sourceShoppingCartItems = new BehaviorSubject(this.shoppingCartStorage);
+  shoppingCartItems = this.sourceShoppingCartItems.asObservable()
 
   constructor() {
   }
 
   setShoppingCartItem(item) {
     let currentShoppingItems = this.getLocalStorageItem('shoppingItems');
-    let updatedShoppingItems = currentShoppingItems.push(item);
-    this.setLocalStorageItem('shoppingItems', updatedShoppingItems);
+    currentShoppingItems.push(item);
+    this.setLocalStorageItem('shoppingItems', currentShoppingItems);
 
-    this.shoppingCartItems.next(currentShoppingItems); // this will make sure to tell every subscriber about the change.
+    this.sourceShoppingCartItems.next(currentShoppingItems); // this will make sure to tell every subscriber about the change.
   }
 
   getLocalStorageItem(key) {

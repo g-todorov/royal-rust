@@ -10,8 +10,6 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCartContentState = 'closed';
-  shoppingCartItems;
-  // hamburgerMenuContentState = 'closed';
 
   constructor( private animationService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
 
@@ -19,15 +17,5 @@ export class ShoppingCartComponent implements OnInit {
     this.animationService.changeShoppingCartState.subscribe(state => {
       this.shoppingCartContentState = state;
     });
-
-    // this.shoppingCartService.changeHamburgerMenuState.subscribe(state => {
-    //   if (state === 'opened')
-    //     this.shoppingCartContentState = 'closed';
-    // });
-
-    this.shoppingCartService.shoppingCartItems.subscribe((shoppingCartItems) => {
-      this.shoppingCartItems = shoppingCartItems;
-      // alert(nextValue);  // this will happen on every change
-    })
   }
 }

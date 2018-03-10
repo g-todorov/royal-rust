@@ -10,7 +10,7 @@ import {AnimationsService} from '../../../services/animations.service'
 export class ShoppingCartButtonComponent implements OnInit {
   @Input() shoppingCartContentState:string;
 
-  constructor( private shoppingCartService: AnimationsService) { }
+  constructor( private animationsService: AnimationsService) { }
 
   ngOnInit() {
   }
@@ -20,6 +20,6 @@ export class ShoppingCartButtonComponent implements OnInit {
   }
 
   toggleShoppingCart(state) {
-    this.shoppingCartService.toggleShoppingCartState(state);
+    this.animationsService.toggleShoppingCartState(state);
   }
 }

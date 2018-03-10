@@ -1,6 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 
 import { AnimationsService } from '../../../services/animations.service'
+import { ShoppingCartService } from '../../../services/shopping-cart.service'
+
+import { ShoppingItem } from '../../../models/shopping-item'
 
 import { shoppingCartContentState } from '../../../animations/shopping-cart/shopping-cart-content.state'
 
@@ -12,13 +15,14 @@ import { shoppingCartContentState } from '../../../animations/shopping-cart/shop
 })
 export class ShoppingCartContentComponent implements OnInit {
   @Input() shoppingCartContentState:string;
+  shoppingCartItems: ShoppingItem[];
 
-  constructor( private shoppingCartService: AnimationsService) { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
-    // this.shoppingCartService.changeShoppingCartState.subscribe(state => {
-    //   this.shoppingCartContentState = state;
-    // });
+    this.shoppingCartService.shoppingCartItems.subscribe((shoppingCartItems) => {
+      this.shoppingCartItems = shoppingCartItems;
+    })
   }
 
 }
