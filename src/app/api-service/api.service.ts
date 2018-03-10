@@ -9,16 +9,20 @@ import { MessageService } from './message-service.service';
 @Injectable()
 export class ApiService {
 
-  private shoppingItemsUrl = 'api/shoppingItems';
+  private apiUrl = 'api/';
+  // private shoppingItemsUrl = 'api/shoppingItems';
   // private shoppingItemsUrl = 'http://127.0.0.1/data.php';
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getShoppingItems(): Observable<any> {
-    return this.http.get<any>(this.shoppingItemsUrl)
+  // getShoppingItems(): Observable<any> {
+  httpGetRequest(itemsType): Observable<any> {
+    let itemsUrl = this.apiUrl + itemsType
+
+    return this.http.get<any>(itemsUrl)
       .pipe(
-        tap(heroes => this.log(`fetched shop items`)),
-        catchError(this.handleError('getShoppingItems', []))
+        tap(items => this.log(`fetched items`)),
+        catchError(this.handleError('getItems', []))
       );
   }
 

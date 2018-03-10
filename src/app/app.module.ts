@@ -14,6 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AnimationsService } from './services/animations.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { ShoppingItemsService } from './services/shopping-items.service';
 import { ApiService } from './api-service/api.service'
 import { MessageService } from './api-service/message-service.service'
 import { InMemoryDataService } from './api-service/in-memory-data.service'
@@ -25,6 +26,7 @@ import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hambur
 import { HamburgerMenuContentComponent } from './components/hamburger-menu/hamburger-menu-content/hamburger-menu-content.component';
 import { HamburgerMenuSublayerComponent } from './components/hamburger-menu/hamburger-menu-sublayer/hamburger-menu-sublayer.component';
 import { HamburgerMenuBreadcrumbComponent } from './components/hamburger-menu/hamburger-menu-breadcrumb/hamburger-menu-breadcrumb.component';
+import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { HamburgerMenuBreadcrumbComponent } from './components/hamburger-menu/ha
     HamburgerMenuButtonComponent,
     HamburgerMenuContentComponent,
     HamburgerMenuSublayerComponent,
-    HamburgerMenuBreadcrumbComponent
+    HamburgerMenuBreadcrumbComponent,
+    ShopItemPageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { HamburgerMenuBreadcrumbComponent } from './components/hamburger-menu/ha
   providers: [
     AnimationsService,
     ShoppingCartService,
+    ShoppingItemsService,
     ApiService,
     MessageService
   ],
