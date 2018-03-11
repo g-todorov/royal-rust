@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { AnimationsService } from '../services/animations.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
@@ -14,7 +14,7 @@ import { pageLoadingState } from '../animations/page-loading.state';
   styleUrls: ['./shop-page.component.styl'],
   animations: [pageLoadingState]
 })
-export class ShopPageComponent implements OnInit {
+export class ShopPageComponent implements OnInit, OnDestroy {
   hamburgerMenuState = 'closed';
   shoppingCartMenuState = 'closed';
   shoppingItems:[any];
@@ -38,7 +38,7 @@ export class ShopPageComponent implements OnInit {
   }
 
   getShoppingItems(): void {
-    this.shoppingItemsService.requestShoppingItems()
+    this.shoppingItemsService.requestShoppingItems(null)
 
     this.shoppingItemsService.shoppingItems.subscribe(shoppingItems => {
       this.shoppingItems = shoppingItems
@@ -54,5 +54,8 @@ export class ShopPageComponent implements OnInit {
       return 'closed'
     }
   }
-
+  
+  ngOnDestroy() {
+    // ...
+  }
 }
