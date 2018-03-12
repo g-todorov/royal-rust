@@ -5,7 +5,7 @@ import { ApiService } from '../api-service/api.service';
 
 @Injectable()
 export class ShoppingItemsService {
-  itemsUrl = 'shoppingItems'
+  itemsUrl = 'shoppingItems';
   // shoppingItems:[any];
 
   private sourceShoppingItems = new BehaviorSubject(null);
@@ -17,9 +17,9 @@ export class ShoppingItemsService {
   constructor(private apiService: ApiService) { }
 
   requestShoppingItems(itemName) {
-    let currentShoppingItems = this.sourceShoppingItems.value;
+    // let currentShoppingItems = this.sourceShoppingItems.value;
 
-    // TODO Decide on whether request prevention is needed 
+    // TODO Decide on whether request prevention is needed
     // if(currentShoppingItems !== null && itemName) {
     //   this.setShoppingItemByName(itemName)
     //   return
@@ -30,20 +30,20 @@ export class ShoppingItemsService {
     this.apiService.httpGetRequest(this.itemsUrl).subscribe(shoppingItems => {
       this.sourceShoppingItems.next(shoppingItems); // this will make sure to tell every subscriber about the change.
 
-      if(itemName) {
+      if (itemName) {
         this.setShoppingItemByName(itemName);
       }
     });
   }
 
   setShoppingItemByName(itemName) {
-    let currentShoppingItems = this.sourceShoppingItems.value;
-    let shoppingItem = currentShoppingItems.find(item => {
-      if(item.name === itemName) {
+    const currentShoppingItems = this.sourceShoppingItems.value;
+    const shoppingItem = currentShoppingItems.find(item => {
+      if (item.name === itemName) {
         return item;
       }
-    })
-    
+    });
+
     this.sourceShoppingItem.next(shoppingItem);
   }
 }

@@ -1,7 +1,7 @@
 @import 'variables'
 
 .shopping-cart-button
-  background red
+  // background red
   cursor pointer
   height 50px
   margin $space
@@ -9,3 +9,25 @@
   right 0
   width 50px
   z-index 21
+
+  .menu-bottom-line
+  .menu-left-line
+  .menu-right-line
+    background white
+    display block
+    height 5px
+    position absolute
+    width 100%
+
+  .menu-bottom-line
+    // background red
+    bottom 0
+
+  .menu-left-line
+    // bottom 0
+    transform rotate(90deg)
+    transform-origin 2.5px
+
+  .menu-right-line
+    transform rotate(-90deg)
+    transform-origin calc(100% - 2.5px)

@@ -10,4 +10,3 @@ export const middleLineState =
     })),
     transition('closed <=> opened', animate('300ms ease-in'))
   ]);
- 

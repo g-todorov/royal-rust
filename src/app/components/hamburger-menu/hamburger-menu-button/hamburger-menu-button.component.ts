@@ -1,10 +1,10 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service'
+import { AnimationsService } from '../../../services/animations.service';
 
-import { middleLineState } from '../../../animations/hamburger-menu/middle-line.state';
-import { bottomLineState } from '../../../animations/hamburger-menu/bottom-line.state';
-import { topLineState } from '../../../animations/hamburger-menu/top-line.state';
+import { middleLineState } from '../../../animations/hamburger-menu/button/middle-line.state';
+import { bottomLineState } from '../../../animations/hamburger-menu/button/bottom-line.state';
+import { topLineState } from '../../../animations/hamburger-menu/button/top-line.state';
 
 @Component({
   selector: 'app-hamburger-menu-button',
@@ -17,7 +17,7 @@ import { topLineState } from '../../../animations/hamburger-menu/top-line.state'
   ]
 })
 export class HamburgerMenuButtonComponent implements OnInit {
-  @Input() hamburgerMenuContentState:string;
+  @Input() hamburgerMenuContentState: string;
 
   constructor(private hamburgerMenuService: AnimationsService) { }
 
@@ -25,7 +25,7 @@ export class HamburgerMenuButtonComponent implements OnInit {
   }
 
   test() {
-    console.log('test')
+    console.log('test');
   }
 
   toggleHamburgerMenu(state) {
