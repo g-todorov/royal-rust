@@ -17,9 +17,10 @@ import { pageLoadingState } from '../animations/page-loading.state';
 export class ShopPageComponent implements OnInit, OnDestroy {
   hamburgerMenuState = 'closed';
   shoppingCartMenuState = 'closed';
-  shoppingItems:[any];
+  shoppingItems: [any];
 
-  constructor(private animtionService: AnimationsService, private shoppingItemsService: ShoppingItemsService, private ShoppingCartService: ShoppingCartService) { }
+  constructor(private animtionService: AnimationsService,
+    private shoppingItemsService: ShoppingItemsService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.animtionService.changeHamburgerMenuState.subscribe(state => {
@@ -30,31 +31,31 @@ export class ShopPageComponent implements OnInit, OnDestroy {
       this.shoppingCartMenuState = state;
     });
 
-    this.getShoppingItems()
+    this.getShoppingItems();
   }
 
-  addItemToShoppingCart(item): void{
-    this.ShoppingCartService.setShoppingCartItem(item);
+  addItemToShoppingCart(item): void {
+    this.shoppingCartService.setShoppingCartItem(item);
   }
 
   getShoppingItems(): void {
-    this.shoppingItemsService.requestShoppingItems(null)
+    this.shoppingItemsService.requestShoppingItems(null);
 
     this.shoppingItemsService.shoppingItems.subscribe(shoppingItems => {
-      this.shoppingItems = shoppingItems
+      this.shoppingItems = shoppingItems;
     });
   }
 
-  getPageState():string {
-    if (this.shoppingCartMenuState == "closed" && this.hamburgerMenuState == "closed") {
+  getPageState(): string {
+    if (this.shoppingCartMenuState === 'closed' && this.hamburgerMenuState === 'closed') {
       // console.log('opened')
-      return 'opened'
+      return 'opened';
     } else {
       // console.log('closed')
-      return 'closed'
+      return 'closed';
     }
   }
-  
+
   ngOnDestroy() {
     // ...
   }

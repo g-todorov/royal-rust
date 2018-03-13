@@ -6,13 +6,13 @@ export class ShoppingCartService {
 
   shoppingCartStorage = this.getLocalStorageItem('shoppingItems');
   private sourceShoppingCartItems = new BehaviorSubject(this.shoppingCartStorage);
-  shoppingCartItems = this.sourceShoppingCartItems.asObservable()
+  shoppingCartItems = this.sourceShoppingCartItems.asObservable();
 
   constructor() {
   }
 
   setShoppingCartItem(item) {
-    let currentShoppingItems = this.getLocalStorageItem('shoppingItems');
+    const currentShoppingItems = this.getLocalStorageItem('shoppingItems');
     currentShoppingItems.push(item);
     this.setLocalStorageItem('shoppingItems', currentShoppingItems);
 
@@ -20,12 +20,12 @@ export class ShoppingCartService {
   }
 
   getLocalStorageItem(key) {
-    let currentShoppingItems = localStorage.getItem(key);
+    const currentShoppingItems = localStorage.getItem(key);
     return currentShoppingItems == null ? [] : JSON.parse(currentShoppingItems);
   }
 
   setLocalStorageItem(key, data) {
-    let stringifiedShoppingItems = JSON.stringify(data);
+    const stringifiedShoppingItems = JSON.stringify(data);
     localStorage.setItem(key, stringifiedShoppingItems);
   }
 

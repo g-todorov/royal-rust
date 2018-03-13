@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hamburger-menu-breadcrumb.component.styl']
 })
 export class HamburgerMenuBreadcrumbComponent implements OnInit {
-  @Input() hamburgerMenuContentState:string;
-  
+  @Input() hamburgerMenuContentState: string;
+
   constructor() { }
 
   ngOnInit() {

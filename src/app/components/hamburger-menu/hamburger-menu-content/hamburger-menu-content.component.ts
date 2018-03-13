@@ -11,7 +11,7 @@ import { hamburgerMenuContentState } from '../../../animations/hamburger-menu/ha
   animations: [hamburgerMenuContentState]
 })
 export class HamburgerMenuContentComponent implements OnInit {
-  @Input() hamburgerMenuContentState:string;
+  @Input() hamburgerMenuContentState: string;
 
   constructor(private animationsService: AnimationsService) { }
 

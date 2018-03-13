@@ -2,7 +2,7 @@
   <!-- <div class="shop-page-overflow" [@pageLoadingState]="getPageState()"></div> -->
   <div class="shop-item-page-overflow">
     <div class="shop-item-page-content">
-      <div class="shopping-item" *ngIf="currentShoppingItem; else loading">
+      <div class="shopping-item" *ngIf="currentShoppingItem; else loading" (click)="addItemToShoppingCart(currentShoppingItem)">
         <img [src]="currentShoppingItem.imgUrl">
       </div>
       <ng-template #loading>
