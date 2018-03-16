@@ -15,13 +15,12 @@ export class ApiService {
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  // getShoppingItems(): Observable<any> {
-  httpGetRequest(itemsType): Observable<any> {
-    let itemsUrl = this.apiUrl + itemsType
+  httpGetRequest(dataUrl): Observable<any> {
+    const requestUrl = this.apiUrl + dataUrl;
 
-    return this.http.get<any>(itemsUrl)
+    return this.http.get<any>(requestUrl)
       .pipe(
-        tap(items => this.log(`fetched items`)),
+        tap(items => this.log(`fetched data`)),
         catchError(this.handleError('getItems', []))
       );
   }
@@ -34,7 +33,6 @@ export class ApiService {
    */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      debugger
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 

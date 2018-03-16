@@ -21,7 +21,8 @@ import { rightLineState } from '../../../animations/shopping-cart/button/right-l
 })
 export class ShoppingCartButtonComponent implements OnInit {
   @Input() shoppingCartContentState: string;
-  shoppingCartItemsCount;
+  @Input() hamburgerMenuContentState: string;
+  shoppingCartItemsCount: number;
 
   constructor(private animationsService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
 
@@ -31,11 +32,15 @@ export class ShoppingCartButtonComponent implements OnInit {
     });
   }
 
-  test() {
-    console.log('test');
-  }
-
   toggleShoppingCart(state) {
     this.animationsService.toggleShoppingCartState(state);
+  }
+
+  setButtonClasses() {
+    const classes = {
+      'lower-z-index': this.hamburgerMenuContentState === 'opened'
+    };
+
+    return classes;
   }
 }

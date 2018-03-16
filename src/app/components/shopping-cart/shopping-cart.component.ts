@@ -10,12 +10,17 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCartContentState = 'closed';
+  hamburgerMenuContentState = 'closed';
 
-  constructor( private animationService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
+  constructor(private animationService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.animationService.changeShoppingCartState.subscribe(state => {
       this.shoppingCartContentState = state;
+    });
+
+    this.animationService.changeHamburgerMenuState.subscribe(state => {
+      this.hamburgerMenuContentState = state;
     });
   }
 }

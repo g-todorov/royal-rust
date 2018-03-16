@@ -1,4 +1,4 @@
-<div class="shopping-cart-button" (click)="toggleShoppingCart(shoppingCartContentState)">
+<div class="shopping-cart-button" [ngClass]="setButtonClasses()" (click)="toggleShoppingCart(shoppingCartContentState)">
   <span class="menu-bottom-line" [@bottomLineState]="shoppingCartContentState"></span>
   <!-- <span class="menu-left-line" [@leftLineState]="shoppingCartContentState"></span> -->
   <span class="menu-left-line"></span>

@@ -1,2 +1,9 @@
-<div class="shopping-cart-content" [@shoppingCartContentState]="shoppingCartContentState">
+<div class="shopping-cart" [@shoppingCartContentState]="shoppingCartContentState">
+  <div class="shopping-cart-overflow">
+      <div class="shopping-cart-content">
+        <div class="shopping-cart-item" *ngFor="let item of shoppingCartItems">
+          {{item.name}}
+        </div>
+      </div>
+    </div>
 </div>

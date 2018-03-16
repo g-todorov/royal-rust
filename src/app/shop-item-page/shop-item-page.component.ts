@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router, Params} from '@angular/router';
 
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ShoppingItemsService } from '../services/shopping-items.service';
@@ -11,15 +11,15 @@ import { ShoppingItemsService } from '../services/shopping-items.service';
 })
 export class ShopItemPageComponent implements OnInit, OnDestroy {
   currentShoppingItem: any = null;
-  urlShoppingItemName = '';
+  urlShoppingItemId: number;
 
   constructor(private route: ActivatedRoute,
     private shoppingItemsService: ShoppingItemsService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     const routerSubscription = this.route.params.subscribe(params => {
-      this.urlShoppingItemName = params.name;
-      this.getShoppingItems(params.name);
+      this.urlShoppingItemId = +params.id;
+      this.getShoppingItems(params.id);
     });
   }
 
@@ -27,11 +27,11 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
     this.shoppingCartService.setShoppingCartItem(item);
   }
 
-  getShoppingItems(currentShoppingItemName): void {
-    this.shoppingItemsService.requestShoppingItems(currentShoppingItemName);
+  getShoppingItems(currentShoppingItemId): void {
+    this.shoppingItemsService.requestShoppingItem(currentShoppingItemId);
 
     this.shoppingItemsService.shoppingItem.subscribe(shoppingItem => {
-      if (shoppingItem !== null && this.urlShoppingItemName === shoppingItem.name) {
+      if (shoppingItem !== null && this.urlShoppingItemId === shoppingItem.id) {
         this.currentShoppingItem = shoppingItem;
       }
     });
@@ -39,6 +39,6 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.currentShoppingItem = null;
-    this.urlShoppingItemName = '';
+    this.urlShoppingItemId = -1;
   }
 }

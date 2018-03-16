@@ -1,9 +1,33 @@
-.shopping-cart-content
+@import 'variables'
+
+.shopping-cart
   background black
   color white
-  font-size 5rem
   height 100vh
   position absolute
-  text-transform uppercase
   width 100vw
-  z-index 20
+  z-index $layer-top-sub
+
+  .shopping-cart-overflow
+    background black
+    bottom 0
+    left $space
+    overflow hidden
+    overflow-y auto
+    position absolute
+    right $space
+    top 90px
+
+    .shopping-cart-content
+      align-items center
+      bottom 0
+      display flex
+      flex-wrap wrap
+      justify-content center
+      left 0
+      overflow-y auto
+      padding $space
+      padding-right 2rem
+      position absolute
+      right -17px
+      top 0

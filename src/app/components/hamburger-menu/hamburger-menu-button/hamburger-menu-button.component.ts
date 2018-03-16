@@ -18,18 +18,22 @@ import { topLineState } from '../../../animations/hamburger-menu/button/top-line
 })
 export class HamburgerMenuButtonComponent implements OnInit {
   @Input() hamburgerMenuContentState: string;
+  @Input() shoppingCartState: string;
 
   constructor(private hamburgerMenuService: AnimationsService) { }
 
   ngOnInit() {
   }
 
-  test() {
-    console.log('test');
-  }
-
   toggleHamburgerMenu(state) {
     this.hamburgerMenuService.toggleHamburgerMenuState(state);
   }
 
+  setButtonClasses() {
+    const classes = {
+      'lower-z-index': this.shoppingCartState === 'opened'
+    };
+
+    return classes;
+  }
 }

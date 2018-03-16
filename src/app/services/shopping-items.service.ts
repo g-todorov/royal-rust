@@ -6,7 +6,6 @@ import { ApiService } from '../api-service/api.service';
 @Injectable()
 export class ShoppingItemsService {
   itemsUrl = 'shoppingItems';
-  // shoppingItems:[any];
 
   private sourceShoppingItems = new BehaviorSubject(null);
   shoppingItems = this.sourceShoppingItems.asObservable();
@@ -16,34 +15,15 @@ export class ShoppingItemsService {
 
   constructor(private apiService: ApiService) { }
 
-  requestShoppingItems(itemName) {
-    // let currentShoppingItems = this.sourceShoppingItems.value;
-
-    // TODO Decide on whether request prevention is needed
-    // if(currentShoppingItems !== null && itemName) {
-    //   this.setShoppingItemByName(itemName)
-    //   return
-    // } else if (currentShoppingItems !== null) {
-    //   return
-    // }
-
+  requestShoppingItems() {
     this.apiService.httpGetRequest(this.itemsUrl).subscribe(shoppingItems => {
       this.sourceShoppingItems.next(shoppingItems); // this will make sure to tell every subscriber about the change.
-
-      if (itemName) {
-        this.setShoppingItemByName(itemName);
-      }
     });
   }
 
-  setShoppingItemByName(itemName) {
-    const currentShoppingItems = this.sourceShoppingItems.value;
-    const shoppingItem = currentShoppingItems.find(item => {
-      if (item.name === itemName) {
-        return item;
-      }
+  requestShoppingItem(id) {
+    this.apiService.httpGetRequest(`${this.itemsUrl}/${id}`).subscribe(shoppingItem => {
+      this.sourceShoppingItem.next(shoppingItem);
     });
-
-    this.sourceShoppingItem.next(shoppingItem);
   }
 }

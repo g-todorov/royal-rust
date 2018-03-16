@@ -11,7 +11,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent, data: { state: 'landing' }},
   { path: ':shop', component: ShopPageComponent, data: { state: 'shop' }},
-  { path: ':shop/:name', component: ShopItemPageComponent, data: { state: 'shopItem' }}
+  { path: ':shop/:id', component: ShopItemPageComponent, data: { state: 'shopItem' }}
 ];
 
 @NgModule({

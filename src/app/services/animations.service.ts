@@ -3,7 +3,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 @Injectable()
 export class AnimationsService {
   hamburgerMenuState = 'closed';
-  shoppingCartMenuState = 'closed'
+  shoppingCartMenuState = 'closed';
 
   constructor() { }
 

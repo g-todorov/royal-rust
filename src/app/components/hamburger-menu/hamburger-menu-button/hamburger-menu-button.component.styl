@@ -10,7 +10,10 @@
   margin $space
   position absolute
   width 50px
-  z-index 21
+  z-index $layer-top
+
+  &.lower-z-index
+    z-index $layer-basic
 
   .menu-top-line
   .menu-middle-line
