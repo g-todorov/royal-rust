@@ -1,6 +1,6 @@
 export class ShoppingItem {
   id: number;
   name: string;
-  imgUrl: string;
+  coverImage: string;
   description: string;
 }

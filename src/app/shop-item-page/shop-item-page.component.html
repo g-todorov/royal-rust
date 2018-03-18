@@ -3,7 +3,15 @@
   <div class="shop-item-page-overflow">
     <div class="shop-item-page-content">
       <div class="shopping-item" *ngIf="currentShoppingItem; else loading" (click)="addItemToShoppingCart(currentShoppingItem)">
-        <img [src]="currentShoppingItem.imgUrl">
+        <div class="shopping-item-images">
+          <img [src]="currentShoppingItem.coverImage">
+          <img *ngFor="let item of currentShoppingItem.descriptionImages" [src]="item">
+        </div>
+        <div class="shopping-item-details">
+          <div class="text">
+            {{currentShoppingItem.description}}
+          </div>
+        </div>
       </div>
       <ng-template #loading>
           <div class="loading-screen">

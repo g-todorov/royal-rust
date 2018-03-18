@@ -21,8 +21,8 @@
 
     .shop-item-page-content
       bottom 0
-      display flex
-      flex-wrap wrap
+      // display flex
+      // flex-wrap wrap
       left 0
       overflow-y auto
       padding $space
@@ -32,6 +32,18 @@
       top 0
       justify-content center
       align-items center
+
+      .shopping-item
+        display flex
+
+        .shopping-item-images
+          padding 0
+
+        .shopping-item-details
+          .text
+            position sticky
+            top 0
+            color white
 
   .loading-screen
     color white
