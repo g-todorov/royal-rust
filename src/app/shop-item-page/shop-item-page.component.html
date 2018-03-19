@@ -2,14 +2,28 @@
   <!-- <div class="shop-page-overflow" [@pageLoadingState]="getPageState()"></div> -->
   <div class="shop-item-page-overflow">
     <div class="shop-item-page-content">
-      <div class="shopping-item" *ngIf="currentShoppingItem; else loading" (click)="addItemToShoppingCart(currentShoppingItem)">
-        <div class="shopping-item-images">
-          <img [src]="currentShoppingItem.coverImage">
-          <img *ngFor="let item of currentShoppingItem.descriptionImages" [src]="item">
+      <div class="shopping-item" *ngIf="currentShoppingItem; else loading">
+        <div class="shopping-item-images-wrapper">
+          <div class="shopping-item-images">
+            <img [src]="currentShoppingItem.coverImage">
+            <img *ngFor="let item of currentShoppingItem.descriptionImages" [src]="item">
+          </div>
         </div>
-        <div class="shopping-item-details">
-          <div class="text">
-            {{currentShoppingItem.description}}
+        <div class="shopping-item-details-wrapper">
+          <div class="shopping-item-details">
+            <div class="description">
+              {{currentShoppingItem.description}}
+            </div>
+            <div class="size-buttons-wrapper">
+              <div class="size-button" (click)="onSizeClicked($event)">XS</div>
+              <div class="size-button" (click)="onSizeClicked($event)">S</div>
+              <div class="size-button" (click)="onSizeClicked($event)">M</div>
+              <div class="size-button" (click)="onSizeClicked($event)">L</div>
+              <div class="size-button" (click)="onSizeClicked($event)">XL</div>
+            </div>
+            <div class="add-to-cart-button" (click)="addItemToShoppingCart(currentShoppingItem)">
+              Add to Cart
+            </div>
           </div>
         </div>
       </div>

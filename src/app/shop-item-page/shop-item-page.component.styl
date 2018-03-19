@@ -36,14 +36,31 @@
       .shopping-item
         display flex
 
-        .shopping-item-images
+        .shopping-item-images-wrapper
           padding 0
 
-        .shopping-item-details
-          .text
+        .shopping-item-details-wrapper
+          .shopping-item-details
             position sticky
             top 0
             color white
+
+          .size-buttons-wrapper
+            display flex
+
+            .size-button
+              background green
+
+              &:hover
+                background none
+                cursor pointer
+
+          .add-to-cart-button
+            background red
+            cursor pointer
+
+            &:hover
+              background none
 
   .loading-screen
     color white

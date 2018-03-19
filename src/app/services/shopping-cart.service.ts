@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { find } from 'rxjs/operators';
 
 @Injectable()
 export class ShoppingCartService {
@@ -11,12 +12,27 @@ export class ShoppingCartService {
   constructor() {
   }
 
-  setShoppingCartItem(item) {
+  setShoppingCartItem(newShoppingCartItem) {
     const currentShoppingItems = this.getLocalStorageItem('shoppingItems');
-    currentShoppingItems.push(item);
+
+    const existingShoppingItem = currentShoppingItems.find(currentItem => {
+      if (currentItem.id === newShoppingCartItem.id && currentItem.size === newShoppingCartItem.size) {
+        return currentItem;
+      }
+    });
+
+    if (typeof(existingShoppingItem) === 'undefined') {
+      newShoppingCartItem.count = 1;
+      currentShoppingItems.push(newShoppingCartItem);
+    } else {
+      const index = currentShoppingItems.indexOf(existingShoppingItem);
+      existingShoppingItem.count++;
+      currentShoppingItems[index] = existingShoppingItem;
+    }
+
     this.setLocalStorageItem('shoppingItems', currentShoppingItems);
 
-    this.sourceShoppingCartItems.next(currentShoppingItems); // this will make sure to tell every subscriber about the change.
+    this.sourceShoppingCartItems.next(currentShoppingItems);
   }
 
   getLocalStorageItem(key) {

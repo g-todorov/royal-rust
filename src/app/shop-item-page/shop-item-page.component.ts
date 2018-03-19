@@ -11,6 +11,7 @@ import { ShoppingItemsService } from '../services/shopping-items.service';
 })
 export class ShopItemPageComponent implements OnInit, OnDestroy {
   currentShoppingItem: any = null;
+  currentShoppingItemSize = '';
   urlShoppingItemId: number;
 
   constructor(private route: ActivatedRoute,
@@ -23,8 +24,19 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  addItemToShoppingCart(item): void {
-    this.shoppingCartService.setShoppingCartItem(item);
+  addItemToShoppingCart({id, name, coverImage}): string {
+    if (this.currentShoppingItemSize === '') {
+      return 'error';
+    }
+
+    const cartShoppingItem = {
+      'id': id,
+      'name': name,
+      'coverImage': coverImage,
+      'size': this.currentShoppingItemSize
+    };
+
+    this.shoppingCartService.setShoppingCartItem(cartShoppingItem);
   }
 
   getShoppingItems(currentShoppingItemId): void {
@@ -35,6 +47,10 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
         this.currentShoppingItem = shoppingItem;
       }
     });
+  }
+
+  onSizeClicked(event) {
+    this.currentShoppingItemSize = event.target.innerText;
   }
 
   ngOnDestroy() {
