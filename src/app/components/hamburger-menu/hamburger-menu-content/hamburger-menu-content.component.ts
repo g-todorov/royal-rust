@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service'
+import { AnimationsService } from '../../../services/animations.service';
 
 import { hamburgerMenuContentState } from '../../../animations/hamburger-menu/hamburger-menu-content.state'
 

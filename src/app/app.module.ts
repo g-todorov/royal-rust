@@ -25,7 +25,7 @@ import { ShoppingCartSublayerComponent } from './components/shopping-cart/shoppi
 import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hamburger-menu-button/hamburger-menu-button.component';
 import { HamburgerMenuContentComponent } from './components/hamburger-menu/hamburger-menu-content/hamburger-menu-content.component';
 import { HamburgerMenuSublayerComponent } from './components/hamburger-menu/hamburger-menu-sublayer/hamburger-menu-sublayer.component';
-import { HamburgerMenuBreadcrumbComponent } from './components/hamburger-menu/hamburger-menu-breadcrumb/hamburger-menu-breadcrumb.component';
+import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb-menu.component';
 import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component';
 
 @NgModule({
@@ -42,7 +42,7 @@ import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component
     HamburgerMenuButtonComponent,
     HamburgerMenuContentComponent,
     HamburgerMenuSublayerComponent,
-    HamburgerMenuBreadcrumbComponent,
+    BreadcrumbMenuComponent,
     ShopItemPageComponent
   ],
   imports: [

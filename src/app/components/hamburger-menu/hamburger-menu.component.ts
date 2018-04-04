@@ -18,12 +18,6 @@ import { AnimationsService } from '../../services/animations.service';
 export class HamburgerMenuComponent implements OnInit {
   hamburgerMenuState = 'closed';
   shoppingCartState = 'closed';
-  // munuItemHoverState = 'notHovered';
-
-  // breadcrumbShopState = 'inactive';
-  // breadcrumbVideosState = 'inactive';
-  // breadcrumbMusicState = 'inactive';
-  // breadcrumbBioState = 'inactive';
 
   constructor(private route: ActivatedRoute, private router: Router, private animationService: AnimationsService) { }
 
@@ -42,4 +36,5 @@ export class HamburgerMenuComponent implements OnInit {
       this.shoppingCartState = state;
     });
   }
+
 }

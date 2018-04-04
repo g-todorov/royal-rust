@@ -33,9 +33,9 @@ export class ShopPageComponent implements OnInit, OnDestroy {
     this.getShoppingItems();
   }
 
-  addItemToShoppingCart(item): void {
-    this.shoppingCartService.setShoppingCartItem(item);
-  }
+  // addItemToShoppingCart(item): void {
+  //   this.shoppingCartService.setShoppingCartItem(item);
+  // }
 
   getShoppingItems(): void {
     this.shoppingItemsService.requestShoppingItems();

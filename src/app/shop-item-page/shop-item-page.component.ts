@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, Params} from '@angular/router';
 
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ShoppingItemsService } from '../services/shopping-items.service';
+import { AnimationsService } from '../services/animations.service';
 
 @Component({
   selector: 'app-shop-item-page',
@@ -14,8 +15,12 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
   currentShoppingItemSize = '';
   urlShoppingItemId: number;
 
-  constructor(private route: ActivatedRoute,
-    private shoppingItemsService: ShoppingItemsService, private shoppingCartService: ShoppingCartService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private shoppingItemsService: ShoppingItemsService,
+    private shoppingCartService: ShoppingCartService,
+    private stateService: AnimationsService
+  ) { }
 
   ngOnInit() {
     const routerSubscription = this.route.params.subscribe(params => {
@@ -44,6 +49,7 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
 
     this.shoppingItemsService.shoppingItem.subscribe(shoppingItem => {
       if (shoppingItem !== null && this.urlShoppingItemId === shoppingItem.id) {
+        this.stateService.changeSelectedItemName(shoppingItem.name);
         this.currentShoppingItem = shoppingItem;
       }
     });
@@ -56,5 +62,6 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.currentShoppingItem = null;
     this.urlShoppingItemId = -1;
+    this.stateService.changeSelectedItemName('');
   }
 }

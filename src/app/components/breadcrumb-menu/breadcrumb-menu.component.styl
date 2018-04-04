@@ -3,9 +3,9 @@
 
 $breadcrumb-space = 40px
 $menu-first-item-space = 250px
-$menu-item-height = 70px
+$breadcrumb-item-height = 70px
 
-.hamburger-menu-breadcrumb
+.breadcrumb-menu
   color white
   font-size 5rem
   height 100vh
@@ -13,10 +13,9 @@ $menu-item-height = 70px
   text-transform uppercase
   width 100vw
 
-  .menu-item-wrapper
+  .breadcrumb-item-wrapper
     padding-top 10px
     position absolute
-    width calc(100% - 100px)
     left 100px
     transition all .3s
 
@@ -24,25 +23,31 @@ $menu-item-height = 70px
       transform translateY($menu-first-item-space)
 
     &.videos
-      transform translateY($menu-first-item-space + $menu-item-height)
+      transform translateY($menu-first-item-space + $breadcrumb-item-height)
 
     &.music
-      transform translateY($menu-first-item-space + $menu-item-height * 2)
+      transform translateY($menu-first-item-space + $breadcrumb-item-height * 2)
 
     &.bio
-      transform translateY($menu-first-item-space + $menu-item-height * 3)
+      transform translateY($menu-first-item-space + $breadcrumb-item-height * 3)
 
     &.active
       z-index $layer-top
 
     &.active.closed
+      display flex
+      padding: 0
       transform translateY($breadcrumb-space)
       transition all .3s
+
+      .selected-shopping-item-name
+        color: red
+        line-height 0.9
 
     &.active.opened
       visibility hidden
 
-    .menu-item
+    .breadcrumb-item
       cursor pointer
       line-height .9
       margin-bottom -15px

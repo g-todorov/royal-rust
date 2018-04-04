@@ -1,0 +1,30 @@
+<div class="breadcrumb-menu">
+  <div class="breadcrumb-item-wrapper shop" [ngClass]="hamburgerMenuContentState" routerLink="/shop" routerLinkActive="active">
+    <div class="breadcrumb-item shop">
+      shop
+    </div>
+    <div class="selected-shopping-item-name" *ngIf="selectedItemName && hamburgerMenuContentState === 'closed'">
+      /{{selectedItemName}}
+    </div>
+  </div>
+  <div class="breadcrumb-item-wrapper videos" [ngClass]="hamburgerMenuContentState" routerLink="/videos" routerLinkActive="active">
+    <div class="breadcrumb-item">
+      videos
+    </div>
+  </div>
+  <div class="breadcrumb-item-wrapper music">
+    <div class="breadcrumb-item">
+      music
+    </div>
+  </div>
+  <div class="breadcrumb-item-wrapper bio">
+    <div class="breadcrumb-item">
+      bio
+    </div>
+  </div>
+  <div class="breadcrumb-item-wrapper placeholder" style="display: none">
+    <div class="breadcrumb-item">
+      placeholder
+    </div>
+  </div>
+</div>

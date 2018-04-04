@@ -4,11 +4,13 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 export class AnimationsService {
   hamburgerMenuState = 'closed';
   shoppingCartMenuState = 'closed';
+  selectedItemName = '';
 
   constructor() { }
 
   @Output() changeHamburgerMenuState: EventEmitter<string> = new EventEmitter();
   @Output() changeShoppingCartState: EventEmitter<string> = new EventEmitter();
+  @Output() changeSelectedItemState: EventEmitter<string> = new EventEmitter();
 
   toggleHamburgerMenuState(state) {
     if (state === 'closed') {
@@ -26,6 +28,11 @@ export class AnimationsService {
       this.shoppingCartMenuState = 'closed';
     }
     this.changeShoppingCartState.emit(this.shoppingCartMenuState);
+  }
+
+  changeSelectedItemName(name) {
+    this.selectedItemName = name;
+    this.changeSelectedItemState.emit(this.selectedItemName);
   }
 
   // getPageState() Possible solution for initial page loading
