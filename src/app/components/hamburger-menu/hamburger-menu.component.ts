@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 import { hamburgerMenuState } from '../../animations/hamburger-menu/hamburger-menu.state';
 import { hamburgerMenuContentState } from '../../animations/hamburger-menu/hamburger-menu-content.state';
 
-import { AnimationsService } from '../../services/animations.service';
+import { AppStateService } from '../../services/app-state.service';
 
 @Component({
   selector: 'app-hamburger-menu',
@@ -19,7 +19,11 @@ export class HamburgerMenuComponent implements OnInit {
   hamburgerMenuState = 'closed';
   shoppingCartState = 'closed';
 
-  constructor(private route: ActivatedRoute, private router: Router, private animationService: AnimationsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private appStateService: AppStateService
+  ) { }
 
   ngOnInit() {
     this.router.events.forEach((event) => {
@@ -28,11 +32,11 @@ export class HamburgerMenuComponent implements OnInit {
       }
     });
 
-    this.animationService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.changeHamburgerMenuState.subscribe(state => {
       this.hamburgerMenuState = state;
     });
 
-    this.animationService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.changeShoppingCartState.subscribe(state => {
       this.shoppingCartState = state;
     });
   }

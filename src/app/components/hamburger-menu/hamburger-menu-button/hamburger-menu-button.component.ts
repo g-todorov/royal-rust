@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service';
+import { AppStateService } from '../../../services/app-state.service';
 
 import { middleLineState } from '../../../animations/hamburger-menu/button/middle-line.state';
 import { bottomLineState } from '../../../animations/hamburger-menu/button/bottom-line.state';
@@ -20,16 +20,16 @@ export class HamburgerMenuButtonComponent implements OnInit {
   @Input() hamburgerMenuContentState: string;
   @Input() shoppingCartState: string;
 
-  constructor(private hamburgerMenuService: AnimationsService) { }
+  constructor(private appStateService: AppStateService) { }
 
   ngOnInit() {
   }
 
   toggleHamburgerMenu(state) {
-    this.hamburgerMenuService.toggleHamburgerMenuState(state);
+    this.appStateService.toggleHamburgerMenuState(state);
   }
 
-  setButtonClasses() {
+  setButtonClasses(): any {
     const classes = {
       'lower-z-index': this.shoppingCartState === 'opened'
     };

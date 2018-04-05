@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service';
+import { AppStateService } from '../../../services/app-state.service';
 
 import { hamburgerMenuContentState } from '../../../animations/hamburger-menu/hamburger-menu-content.state'
 
@@ -13,13 +13,13 @@ import { hamburgerMenuContentState } from '../../../animations/hamburger-menu/ha
 export class HamburgerMenuContentComponent implements OnInit {
   @Input() hamburgerMenuContentState: string;
 
-  constructor(private animationsService: AnimationsService) { }
+  constructor(private appStateService: AppStateService) { }
 
   ngOnInit() {
   }
 
   toggleHamburgerMenu(state) {
-    this.animationsService.toggleHamburgerMenuState(state);
+    this.appStateService.toggleHamburgerMenuState(state);
   }
 
 }

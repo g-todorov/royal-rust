@@ -1,7 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service';
-
 import { hamburgerMenuSublayerState } from '../../../animations/hamburger-menu/hamburger-menu-sublayer.state';
 
 @Component({
@@ -11,15 +9,11 @@ import { hamburgerMenuSublayerState } from '../../../animations/hamburger-menu/h
   animations: [hamburgerMenuSublayerState]
 })
 export class HamburgerMenuSublayerComponent implements OnInit {
-  @Input() hamburgerMenuContentState:string;
+  @Input() hamburgerMenuContentState: string;
 
-  constructor(private animationsService: AnimationsService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  toggleHamburgerMenu(state) {
-    this.animationsService.toggleHamburgerMenuState(state);
   }
 
 }

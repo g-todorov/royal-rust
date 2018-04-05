@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import {AnimationsService} from '../../../services/animations.service';
+import { AppStateService } from '../../../services/app-state.service';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 import { ShoppingItem } from '../../../models/shopping-item';
@@ -24,7 +24,7 @@ export class ShoppingCartButtonComponent implements OnInit {
   @Input() hamburgerMenuContentState: string;
   shoppingCartItemsCount: number;
 
-  constructor(private animationsService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
+  constructor(private appStateService: AppStateService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.shoppingCartService.shoppingCartItems.subscribe((shoppingCartItems: ShoppingItem[]) => {
@@ -33,7 +33,7 @@ export class ShoppingCartButtonComponent implements OnInit {
   }
 
   toggleShoppingCart(state) {
-    this.animationsService.toggleShoppingCartState(state);
+    this.appStateService.toggleShoppingCartState(state);
   }
 
   setButtonClasses() {

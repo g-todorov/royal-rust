@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, Params} from '@angular/router';
 
-import { ShoppingCartService } from '../services/shopping-cart.service';
-import { ShoppingItemsService } from '../services/shopping-items.service';
-import { AnimationsService } from '../services/animations.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ShoppingItemsService } from '../../services/shopping-items.service';
+import { AppStateService } from '../../services/app-state.service';
 
 @Component({
   selector: 'app-shop-item-page',
@@ -19,10 +19,14 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private shoppingItemsService: ShoppingItemsService,
     private shoppingCartService: ShoppingCartService,
-    private stateService: AnimationsService
+    private appStateService: AppStateService
   ) { }
 
   ngOnInit() {
+    const routerUrlSubscription = this.route.url.subscribe(params => {
+      this.appStateService.changeSelectedMenuItemName(params[0].path);
+    });
+
     const routerSubscription = this.route.params.subscribe(params => {
       this.urlShoppingItemId = +params.id;
       this.getShoppingItems(params.id);
@@ -49,7 +53,7 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
 
     this.shoppingItemsService.shoppingItem.subscribe(shoppingItem => {
       if (shoppingItem !== null && this.urlShoppingItemId === shoppingItem.id) {
-        this.stateService.changeSelectedItemName(shoppingItem.name);
+        this.appStateService.changeSelectedItemName(shoppingItem.name);
         this.currentShoppingItem = shoppingItem;
       }
     });
@@ -62,6 +66,6 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.currentShoppingItem = null;
     this.urlShoppingItemId = -1;
-    this.stateService.changeSelectedItemName('');
+    this.appStateService.changeSelectedItemName('');
   }
 }

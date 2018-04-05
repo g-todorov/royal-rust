@@ -6,18 +6,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { FullscreenSliderComponent } from './components/fullscreen-slider/fullscreen-slider.component';
-import { ShopPageComponent } from './shop-page/shop-page.component';
+import { ShopPageComponent } from './pages/shop-page/shop-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { AnimationsService } from './services/animations.service';
+import { AppStateService } from './services/app-state.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ShoppingItemsService } from './services/shopping-items.service';
-import { ApiService } from './api-service/api.service'
-import { MessageService } from './api-service/message-service.service'
-import { InMemoryDataService } from './api-service/in-memory-data.service'
+import { ApiService } from './api-service/api.service';
+import { MessageService } from './api-service/message-service.service';
+import { InMemoryDataService } from './api-service/in-memory-data.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartButtonComponent } from './components/shopping-cart/shopping-cart-button/shopping-cart-button.component';
 import { ShoppingCartContentComponent } from './components/shopping-cart/shopping-cart-content/shopping-cart-content.component';
@@ -26,7 +26,8 @@ import { HamburgerMenuButtonComponent } from './components/hamburger-menu/hambur
 import { HamburgerMenuContentComponent } from './components/hamburger-menu/hamburger-menu-content/hamburger-menu-content.component';
 import { HamburgerMenuSublayerComponent } from './components/hamburger-menu/hamburger-menu-sublayer/hamburger-menu-sublayer.component';
 import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb-menu.component';
-import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component';
+import { ShopItemPageComponent } from './pages/shop-item-page/shop-item-page.component';
+import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component
     HamburgerMenuContentComponent,
     HamburgerMenuSublayerComponent,
     BreadcrumbMenuComponent,
-    ShopItemPageComponent
+    ShopItemPageComponent,
+    VideosPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,7 @@ import { ShopItemPageComponent } from './shop-item-page/shop-item-page.component
     )
   ],
   providers: [
-    AnimationsService,
+    AppStateService,
     ShoppingCartService,
     ShoppingItemsService,
     ApiService,

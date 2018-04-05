@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { AnimationsService } from '../../../services/animations.service'
-
 import { shoppingCartSublayerState } from '../../../animations/shopping-cart/shopping-cart-sublayer.state'
 
 @Component({
@@ -11,7 +9,7 @@ import { shoppingCartSublayerState } from '../../../animations/shopping-cart/sho
   animations: [shoppingCartSublayerState]
 })
 export class ShoppingCartSublayerComponent implements OnInit {
-  @Input() shoppingCartContentState:string;
+  @Input() shoppingCartContentState: string;
 
   constructor() { }
 

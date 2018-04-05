@@ -1,7 +1,6 @@
 <div class="hamburger-menu-wrapper">
   <!-- <div *ngIf="hamburgerMenuState === 'opened'" class="hamburger-menu-breadcrumb"> -->
   <app-hamburger-menu-button [@hamburgerMenuContentState]="hamburgerMenuState" [@shoppingCartState]="shoppingCartState"></app-hamburger-menu-button>
-  <!-- <app-hamburger-menu-breadcrumb [@hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-breadcrumb> -->
   <app-hamburger-menu-sublayer [hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-sublayer>
   <app-hamburger-menu-content [hamburgerMenuContentState]="hamburgerMenuState"></app-hamburger-menu-content>
 </div>

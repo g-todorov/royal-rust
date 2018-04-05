@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, Params} from '@angular/router';
 
-import { AnimationsService } from '../services/animations.service';
-import { ShoppingCartService } from '../services/shopping-cart.service';
-import { ShoppingItemsService } from '../services/shopping-items.service';
+import { AppStateService } from '../../services/app-state.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ShoppingItemsService } from '../../services/shopping-items.service';
 
-import { pageLoadingState } from '../animations/page-loading.state';
+import { pageLoadingState } from '../../animations/page-loading.state';
 
 
 @Component({
@@ -18,24 +19,28 @@ export class ShopPageComponent implements OnInit, OnDestroy {
   shoppingCartMenuState = 'closed';
   shoppingItems: [any];
 
-  constructor(private animtionService: AnimationsService,
-    private shoppingItemsService: ShoppingItemsService, private shoppingCartService: ShoppingCartService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private appStateService: AppStateService,
+    private shoppingItemsService: ShoppingItemsService,
+    private shoppingCartService: ShoppingCartService
+  ) { }
 
   ngOnInit() {
-    this.animtionService.changeHamburgerMenuState.subscribe(state => {
+    const routerUrlSubscription = this.route.url.subscribe(params => {
+      this.appStateService.changeSelectedMenuItemName(params[0].path);
+    });
+
+    this.appStateService.changeHamburgerMenuState.subscribe(state => {
       this.hamburgerMenuState = state;
     });
 
-    this.animtionService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.changeShoppingCartState.subscribe(state => {
       this.shoppingCartMenuState = state;
     });
 
     this.getShoppingItems();
   }
-
-  // addItemToShoppingCart(item): void {
-  //   this.shoppingCartService.setShoppingCartItem(item);
-  // }
 
   getShoppingItems(): void {
     this.shoppingItemsService.requestShoppingItems();

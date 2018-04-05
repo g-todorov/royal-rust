@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AnimationsService } from '../../services/animations.service'
+import { AppStateService } from '../../services/app-state.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
@@ -12,14 +12,14 @@ export class ShoppingCartComponent implements OnInit {
   shoppingCartContentState = 'closed';
   hamburgerMenuContentState = 'closed';
 
-  constructor(private animationService: AnimationsService, private shoppingCartService: ShoppingCartService) { }
+  constructor(private appStateService: AppStateService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
-    this.animationService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.changeShoppingCartState.subscribe(state => {
       this.shoppingCartContentState = state;
     });
 
-    this.animationService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.changeHamburgerMenuState.subscribe(state => {
       this.hamburgerMenuContentState = state;
     });
   }
