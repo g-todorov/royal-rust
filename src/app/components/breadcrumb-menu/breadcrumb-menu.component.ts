@@ -10,6 +10,7 @@ import { AppStateService } from '../../services/app-state.service';
 })
 export class BreadcrumbMenuComponent implements OnInit {
   hamburgerMenuContentState = 'closed';
+  shoppingCartState = 'closed';
   selectedItemName: string;
   selectedMenuItemName: string;
 
@@ -27,14 +28,19 @@ export class BreadcrumbMenuComponent implements OnInit {
     this.appStateService.changeHamburgerMenuState.subscribe(state => {
       this.hamburgerMenuContentState = state;
     });
+
+    this.appStateService.changeShoppingCartState.subscribe(state => {
+      this.shoppingCartState = state;
+    });
   }
 
   setBreadcrumbClasses(): any {
     const classes = {
       'shop': this.selectedMenuItemName === 'shop',
       'videos': this.selectedMenuItemName === 'videos',
-      'closed': this.hamburgerMenuContentState === 'closed',
-      'opened': this.hamburgerMenuContentState === 'opened'
+      'active': this.hamburgerMenuContentState === 'closed',
+      'inactive': this.hamburgerMenuContentState === 'opened',
+      'lower-z-index': this.shoppingCartState === 'opened'
     };
 
     return classes;

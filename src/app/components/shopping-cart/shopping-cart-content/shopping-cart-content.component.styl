@@ -19,11 +19,12 @@
     top 90px
 
     .shopping-cart-content
-      align-items center
+      // align-items center
+      flex-direction column
       bottom 0
       display flex
-      flex-wrap wrap
-      justify-content center
+      // flex-wrap wrap
+      justify-content start
       left 0
       overflow-y auto
       padding $space
@@ -31,3 +32,19 @@
       position absolute
       right -17px
       top 0
+
+      .shopping-cart-item
+        display flex
+        align-items center
+        justify-content space-between
+        font-size $font-size-large
+        flex 1 0 auto
+
+        .cover
+          width 8rem
+
+          img
+            max-width 100%
+
+        .name
+          font-size $font-size-x-large

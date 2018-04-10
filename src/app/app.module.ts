@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { FullscreenSliderComponent } from './components/fullscreen-slider/fullscreen-slider.component';
 import { ShopPageComponent } from './pages/shop-page/shop-page.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';

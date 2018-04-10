@@ -1,6 +1,6 @@
 <div class="breadcrumb-menu" *ngIf="selectedMenuItemName">
-  <div class="breadcrumb-item-wrapper" [ngClass]="setBreadcrumbClasses()" [routerLink]="['/' + selectedMenuItemName]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false, __change_detection_hack__: selectedMenuItemName }">
-    <div class="breadcrumb-item shop">
+  <div class="breadcrumb-item-wrapper" [ngClass]="setBreadcrumbClasses()" routerLinkActive="selected" [routerLinkActiveOptions]="{ exact: false, __change_detection_hack__: selectedMenuItemName }">
+    <div class="breadcrumb-item" [routerLink]="['/' + selectedMenuItemName]" >
       {{selectedMenuItemName}}
     </div>
     <div class="selected-shopping-item-name" *ngIf="selectedItemName && hamburgerMenuContentState === 'closed'">

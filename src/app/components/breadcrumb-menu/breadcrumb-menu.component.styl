@@ -8,10 +8,10 @@ $breadcrumb-item-height = 70px
 .breadcrumb-menu
   color white
   font-size 5rem
-  height 100vh
-  position absolute
+  // height 100vh
+  // position absolute
   text-transform uppercase
-  width 100vw
+  // width 100vw
 
   .breadcrumb-item-wrapper
     padding-top 10px
@@ -31,10 +31,13 @@ $breadcrumb-item-height = 70px
     &.bio
       transform translateY($menu-first-item-space + $breadcrumb-item-height * 3)
 
-    &.active
+    &.selected
       z-index $layer-top
 
-    &.active.closed
+    &.selected.lower-z-index
+      z-index $layer-basic
+
+    &.selected.active
       display flex
       padding: 0
       transform translateY($breadcrumb-space)
@@ -44,7 +47,7 @@ $breadcrumb-item-height = 70px
         color: red
         line-height 0.9
 
-    &.active.opened
+    &.selected.inactive
       visibility hidden
 
     .breadcrumb-item
