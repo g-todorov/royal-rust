@@ -15,6 +15,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppStateService } from './services/app-state.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ShoppingItemsService } from './services/shopping-items.service';
+import { LocalStorageService } from './services/local-storage.service';
 import { ApiService } from './api-service/api.service';
 import { MessageService } from './api-service/message-service.service';
 import { InMemoryDataService } from './api-service/in-memory-data.service';
@@ -64,6 +65,7 @@ import { VideosPageComponent } from './pages/videos-page/videos-page.component';
     ShoppingCartService,
     ShoppingItemsService,
     ApiService,
+    LocalStorageService,
     MessageService
   ],
   bootstrap: [AppComponent]

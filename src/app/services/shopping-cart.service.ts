@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { find } from 'rxjs/operators';
 
+import { LocalStorageService } from './local-storage.service';
+
 @Injectable()
 export class ShoppingCartService {
 
-  shoppingCartStorage = this.getLocalStorageItem('shoppingItems');
+  shoppingCartStorage = this.localStorageService.getLocalStorageItem('shoppingItems');
   private sourceShoppingCartItems = new BehaviorSubject(this.shoppingCartStorage);
   shoppingCartItems = this.sourceShoppingCartItems.asObservable();
 
-  constructor() {
+  constructor(private localStorageService: LocalStorageService) {
   }
 
   setShoppingCartItem(newShoppingCartItem) {
-    const currentShoppingItems = this.getLocalStorageItem('shoppingItems');
+    const currentShoppingItems = this.localStorageService.getLocalStorageItem('shoppingItems');
 
     const existingShoppingItem = currentShoppingItems.find(currentItem => {
       if (currentItem.id === newShoppingCartItem.id && currentItem.size === newShoppingCartItem.size) {
@@ -30,19 +32,13 @@ export class ShoppingCartService {
       currentShoppingItems[index] = existingShoppingItem;
     }
 
-    this.setLocalStorageItem('shoppingItems', currentShoppingItems);
+    this.localStorageService.setLocalStorageItem('shoppingItems', currentShoppingItems);
 
     this.sourceShoppingCartItems.next(currentShoppingItems);
   }
 
-  getLocalStorageItem(key) {
-    const currentShoppingItems = localStorage.getItem(key);
-    return currentShoppingItems == null ? [] : JSON.parse(currentShoppingItems);
-  }
-
-  setLocalStorageItem(key, data) {
-    const stringifiedShoppingItems = JSON.stringify(data);
-    localStorage.setItem(key, stringifiedShoppingItems);
+  deleteShoppingCartItem(shoppingCartItem) {
+    console.log(shoppingCartItem);
   }
 
 }

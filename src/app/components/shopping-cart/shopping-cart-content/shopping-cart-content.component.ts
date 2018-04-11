@@ -24,4 +24,8 @@ export class ShoppingCartContentComponent implements OnInit {
     });
   }
 
+  deleteShoppingCartItem(item) {
+    this.shoppingCartService.deleteShoppingCartItem(item);
+  }
+
 }
