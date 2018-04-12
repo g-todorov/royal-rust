@@ -33,12 +33,23 @@ export class ShoppingCartService {
     }
 
     this.localStorageService.setLocalStorageItem('shoppingItems', currentShoppingItems);
-
     this.sourceShoppingCartItems.next(currentShoppingItems);
   }
 
   deleteShoppingCartItem(shoppingCartItem) {
-    console.log(shoppingCartItem);
+    const currentShoppingItems = this.localStorageService.getLocalStorageItem('shoppingItems');
+
+    const filteredCurrentShoppingItems = currentShoppingItems.filter(item => {
+
+      if (item.id === shoppingCartItem.id && item.size === shoppingCartItem.size) {
+        return;
+      }
+
+      return item;
+    });
+
+    this.localStorageService.setLocalStorageItem('shoppingItems', filteredCurrentShoppingItems);
+    this.sourceShoppingCartItems.next(filteredCurrentShoppingItems);
   }
 
 }

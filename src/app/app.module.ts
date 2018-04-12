@@ -29,6 +29,7 @@ import { HamburgerMenuSublayerComponent } from './components/hamburger-menu/hamb
 import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb-menu.component';
 import { ShopItemPageComponent } from './pages/shop-item-page/shop-item-page.component';
 import { VideosPageComponent } from './pages/videos-page/videos-page.component';
+import { DropdownComponent } from './shared-components/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { VideosPageComponent } from './pages/videos-page/videos-page.component';
     HamburgerMenuSublayerComponent,
     BreadcrumbMenuComponent,
     ShopItemPageComponent,
-    VideosPageComponent
+    VideosPageComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

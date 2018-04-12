@@ -8,8 +8,12 @@
         <div class="name">
           {{item.name}}
         </div>
-        <div class="size">
+        <!-- <div class="size">
           {{item.size}}
+        </div> -->
+        <div class="size">
+          <app-dropdown [selectedItem]="item.size" [items]="['a','b','c']">
+          </app-dropdown>
         </div>
         <div class="count">
           {{item.count}}
