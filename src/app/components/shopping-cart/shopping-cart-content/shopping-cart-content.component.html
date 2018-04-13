@@ -8,11 +8,8 @@
         <div class="name">
           {{item.name}}
         </div>
-        <!-- <div class="size">
-          {{item.size}}
-        </div> -->
         <div class="size">
-          <app-dropdown [selectedItem]="item.size" [items]="['a','b','c']">
+          <app-dropdown [selectedItem]="item.size" [items]="shoppingCartItemSizes" (itemSelect)="onShoppingItemSizeSelected($event, item)">
           </app-dropdown>
         </div>
         <div class="count">

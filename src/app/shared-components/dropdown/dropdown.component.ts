@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -8,6 +8,8 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 export class DropdownComponent implements OnInit, OnChanges {
   @Input() selectedItem;
   @Input() items;
+  @Output() itemSelect = new EventEmitter();
+  isOpen = false;
 
   constructor() { }
 
@@ -15,6 +17,14 @@ export class DropdownComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+    // console.log(changes);
+  }
+
+  onItemSelected(item) {
+    this.itemSelect.emit(item);
+  }
+
+  toggleOptions(flag) {
+    this.isOpen = !flag;
   }
 }

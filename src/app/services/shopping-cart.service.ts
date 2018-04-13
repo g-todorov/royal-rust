@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { find } from 'rxjs/operators';
+// import { find } from 'rxjs/operators';
 
 import { LocalStorageService } from './local-storage.service';
+import { count } from 'rxjs/operators';
 
 @Injectable()
 export class ShoppingCartService {
@@ -36,11 +37,38 @@ export class ShoppingCartService {
     this.sourceShoppingCartItems.next(currentShoppingItems);
   }
 
+  updateShoppingCartItem(key, prop, shoppingCartItem) {
+    const currentShoppingItems = this.localStorageService.getLocalStorageItem('shoppingItems');
+
+    let updatedItemIndex = -1;
+    let duplicateItemIndex = -1;
+
+    currentShoppingItems.forEach((shoppingItem, index) => {
+      if (key === 'size' && shoppingItem.id === shoppingCartItem.id && shoppingItem.size === prop) {
+        duplicateItemIndex = index;
+      }
+      if (shoppingItem.id === shoppingCartItem.id && shoppingItem.size === shoppingCartItem.size) {
+        shoppingItem[key] = prop;
+        updatedItemIndex = index;
+      }
+    });
+
+    if (duplicateItemIndex > -1) {
+      const duplicatedItemCount = currentShoppingItems[duplicateItemIndex]['count'];
+      const updatedItemCount = currentShoppingItems[updatedItemIndex]['count'];
+      currentShoppingItems[updatedItemIndex]['count'] = updatedItemCount + duplicatedItemCount;
+      currentShoppingItems.splice(duplicateItemIndex, 1);
+    }
+
+
+    this.localStorageService.setLocalStorageItem('shoppingItems', currentShoppingItems);
+    this.sourceShoppingCartItems.next(currentShoppingItems);
+  }
+
   deleteShoppingCartItem(shoppingCartItem) {
     const currentShoppingItems = this.localStorageService.getLocalStorageItem('shoppingItems');
 
     const filteredCurrentShoppingItems = currentShoppingItems.filter(item => {
-
       if (item.id === shoppingCartItem.id && item.size === shoppingCartItem.size) {
         return;
       }

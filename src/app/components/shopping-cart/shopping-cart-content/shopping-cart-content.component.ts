@@ -15,6 +15,28 @@ import { shoppingCartContentState } from '../../../animations/shopping-cart/shop
 export class ShoppingCartContentComponent implements OnInit {
   @Input() shoppingCartContentState: string;
   shoppingCartItems: ShoppingItem[];
+  shoppingCartItemSizes = [
+    {
+      label: 'XS',
+      value: 'XS'
+    },
+    {
+      label: 'S',
+      value: 'S'
+    },
+    {
+      label: 'M',
+      value: 'M'
+    },
+    {
+      label: 'L',
+      value: 'L'
+    },
+    {
+      label: 'XL',
+      value: 'XL'
+    }
+  ];
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
@@ -26,6 +48,10 @@ export class ShoppingCartContentComponent implements OnInit {
 
   deleteShoppingCartItem(item) {
     this.shoppingCartService.deleteShoppingCartItem(item);
+  }
+
+  onShoppingItemSizeSelected(size, item) {
+    this.shoppingCartService.updateShoppingCartItem('size', size.value, item);
   }
 
 }

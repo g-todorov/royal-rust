@@ -1,3 +1,10 @@
-<div>
-  {{selectedItem}}
+<div class="dropdown">
+  <div class="selected-item" (click)="toggleOptions(isOpen)">
+    {{selectedItem}}
+  </div>
+  <div class="items-wrapper" *ngIf="isOpen">
+    <div class="item" [ngClass]="{'selected': selectedItem === item.value}" *ngFor="let item of items" (click)="onItemSelected(item)">
+      {{item.label}}
+    </div>
+  </div>
 </div>
