@@ -45,20 +45,36 @@
 
           .size-buttons-wrapper
             display flex
+            margin-top $space
+            font-size: $font-size-large
+            justify-content: space-around
 
             .size-button
-              background green
+              display flex
+              justify-content center
+              flex-grow 1
+              
+              &.selected
+                background blue
 
               &:hover
-                background none
+                background green
                 cursor pointer
 
           .add-to-cart-button
-            background red
             cursor pointer
+            display flex
+            font-size $font-size-large
+            justify-content center
+            margin-top $space
 
             &:hover
-              background none
+              background red
+          
+          .price
+            display flex
+            font-size $font-size-large
+            justify-content flex-start
 
   .loading-screen
     color white

@@ -1,22 +1,36 @@
 <div class="shopping-cart" [@shoppingCartContentState]="shoppingCartContentState">
   <div class="shopping-cart-overflow">
     <div class="shopping-cart-content">
-      <div class="shopping-cart-item" *ngFor="let item of shoppingCartItems">
-        <div class="cover">
-          <img [src]="item.coverImage">
+      <div class="left-side">
+        <div class="shopping-cart-items-overflow">
+          <div class="shopping-cart-items-wrapper">
+              <div class="shopping-cart-item" *ngFor="let item of shoppingCartItems">
+                <div class="cover">
+                  <img [src]="item.coverImage">
+                </div>
+                <div class="name">
+                  {{item.name}}
+                </div>
+                <div class="size">
+                  <app-dropdown [selectedItem]="item.size" [items]="shoppingCartItemSizes" (itemSelect)="onShoppingItemSizeSelected($event, item)">
+                  </app-dropdown>
+                </div>
+                <div class="count">
+                  {{item.count}}
+                </div>
+                <div class="price">
+                  {{item.count * item.price}}
+                </div>
+                <div class="delete" (click)="deleteShoppingCartItem(item)">
+                  delete
+                </div>
+              </div>
+          </div>
         </div>
-        <div class="name">
-          {{item.name}}
-        </div>
-        <div class="size">
-          <app-dropdown [selectedItem]="item.size" [items]="shoppingCartItemSizes" (itemSelect)="onShoppingItemSizeSelected($event, item)">
-          </app-dropdown>
-        </div>
-        <div class="count">
-          {{item.count}}
-        </div>
-        <div class="delete" (click)="deleteShoppingCartItem(item)">
-          delete
+      </div>
+      <div class="right-side">
+        <div class="subtotal">
+          <div>subtotal:{{shippingCartSubtotal}}</div>
         </div>
       </div>
     </div>

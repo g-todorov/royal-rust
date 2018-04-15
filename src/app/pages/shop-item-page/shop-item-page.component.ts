@@ -33,7 +33,7 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  addItemToShoppingCart({id, name, coverImage}): string {
+  addItemToShoppingCart({id, name, coverImage, price}): string {
     if (this.currentShoppingItemSize === '') {
       return 'error';
     }
@@ -42,6 +42,7 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
       'id': id,
       'name': name,
       'coverImage': coverImage,
+      'price': price,
       'size': this.currentShoppingItemSize
     };
 

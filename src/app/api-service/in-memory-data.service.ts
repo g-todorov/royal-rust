@@ -19,7 +19,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '200'
       },
       {
         id: 12,
@@ -31,7 +32,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '100'
       },
       {
         id: 13,
@@ -43,7 +45,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '200'
       },
       {
         id: 14,
@@ -55,7 +58,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '225'
       },
       {
         id: 15,
@@ -67,7 +71,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '12'
       },
       {
         id: 16,
@@ -79,7 +84,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '229'
       },
       {
         id: 17,
@@ -91,7 +97,8 @@ export class InMemoryDataService {
           'assets/images/two.jpg',
           'assets/images/three.jpg',
           'assets/images/five.jpg'
-        ]
+        ],
+        price: '10'
       }
     ];
 

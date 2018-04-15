@@ -15,6 +15,7 @@ import { shoppingCartContentState } from '../../../animations/shopping-cart/shop
 export class ShoppingCartContentComponent implements OnInit {
   @Input() shoppingCartContentState: string;
   shoppingCartItems: ShoppingItem[];
+  shippingCartSubtotal = 0
   shoppingCartItemSizes = [
     {
       label: 'XS',
@@ -43,7 +44,18 @@ export class ShoppingCartContentComponent implements OnInit {
   ngOnInit() {
     this.shoppingCartService.shoppingCartItems.subscribe((shoppingCartItems) => {
       this.shoppingCartItems = shoppingCartItems;
+      this.shippingCartSubtotal = this.calculateSubtotal(this.shoppingCartItems);
     });
+  }
+
+  calculateSubtotal(items):number {
+    const subtotal = items.reduce((sum, currentValue) => {
+        return sum + currentValue.count * parseInt(currentValue.price);
+      },
+      0
+    );
+
+    return subtotal;
   }
 
   deleteShoppingCartItem(item) {

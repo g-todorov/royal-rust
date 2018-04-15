@@ -12,39 +12,58 @@
     background black
     bottom 0
     left $space
-    overflow hidden
-    overflow-y auto
+    // overflow hidden
+    // overflow-y auto
     position absolute
     right $space
     top 90px
 
     .shopping-cart-content
-      // align-items center
-      flex-direction column
       bottom 0
       display flex
-      // flex-wrap wrap
+      flex-direction row
       justify-content start
       left 0
-      overflow-y auto
+      overflow-y hidden
       padding $space
       padding-right 2rem
       position absolute
-      right -17px
+      right 0
       top 0
 
-      .shopping-cart-item
+      .left-side
+        flex-grow 1
+        position relative
+        overflow hidden
+
+        .shopping-cart-items-wrapper
+            bottom 0
+            left 0
+            position absolute
+            right -17px
+            top 0
+            overflow-y auto
+
+          .shopping-cart-item
+            align-items center
+            display flex
+            flex 1 0 auto
+            font-size $font-size-large
+            justify-content space-between
+
+            .cover
+              width 8rem
+
+              img
+                max-width 100%
+
+            .name
+              font-size $font-size-x-large
+
+      .right-side
+        align-items flex-end
         display flex
-        align-items center
-        justify-content space-between
-        font-size $font-size-large
-        flex 1 0 auto
+        margin-left $space-large
 
-        .cover
-          width 8rem
-
-          img
-            max-width 100%
-
-        .name
-          font-size $font-size-x-large
+        .subtotal
+          font-size $font-size-large

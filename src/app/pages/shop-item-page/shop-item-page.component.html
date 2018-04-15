@@ -14,12 +14,16 @@
             <div class="description">
               {{currentShoppingItem.description}}
             </div>
+            <div class="price">
+              {{currentShoppingItem.price}}
+            </div>
+            <!-- TODO shared component -->
             <div class="size-buttons-wrapper">
-              <div class="size-button" (click)="onSizeClicked($event)">XS</div>
-              <div class="size-button" (click)="onSizeClicked($event)">S</div>
-              <div class="size-button" (click)="onSizeClicked($event)">M</div>
-              <div class="size-button" (click)="onSizeClicked($event)">L</div>
-              <div class="size-button" (click)="onSizeClicked($event)">XL</div>
+              <div class="size-button" [ngClass]="{'selected': currentShoppingItemSize === 'XS'}" (click)="onSizeClicked($event)">XS</div>
+              <div class="size-button" [ngClass]="{'selected': currentShoppingItemSize === 'S'}" (click)="onSizeClicked($event)">S</div>
+              <div class="size-button" [ngClass]="{'selected': currentShoppingItemSize === 'M'}" (click)="onSizeClicked($event)">M</div>
+              <div class="size-button" [ngClass]="{'selected': currentShoppingItemSize === 'L'}" (click)="onSizeClicked($event)">L</div>
+              <div class="size-button" [ngClass]="{'selected': currentShoppingItemSize === 'XL'}" (click)="onSizeClicked($event)">XL</div>
             </div>
             <div class="add-to-cart-button" (click)="addItemToShoppingCart(currentShoppingItem)">
               Add to Cart
