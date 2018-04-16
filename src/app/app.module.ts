@@ -30,6 +30,7 @@ import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb
 import { ShopItemPageComponent } from './pages/shop-item-page/shop-item-page.component';
 import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 import { DropdownComponent } from './shared-components/dropdown/dropdown.component';
+import { CounterComponent } from './shared-components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { DropdownComponent } from './shared-components/dropdown/dropdown.compone
     BreadcrumbMenuComponent,
     ShopItemPageComponent,
     VideosPageComponent,
-    DropdownComponent
+    DropdownComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

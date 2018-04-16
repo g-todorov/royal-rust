@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { shoppingCartSublayerState } from '../../../animations/shopping-cart/shopping-cart-sublayer.state'
+import { shoppingCartSublayerState } from '../../../animations/shopping-cart/shopping-cart-sublayer.state';
 
 @Component({
   selector: 'app-shopping-cart-sublayer',

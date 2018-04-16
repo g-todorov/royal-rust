@@ -1,4 +1,5 @@
-<div class="dropdown">
+<!-- TODO Find a cleaner solution for detencting blur instead of using tabindex -->
+<div class="dropdown" tabindex="0" (blur)="toggleOptions(isOpen)">
   <div class="selected-item" (click)="toggleOptions(isOpen)">
     {{selectedItem}}
   </div>

@@ -14,9 +14,11 @@ export class DropdownComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
+    // debugger
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    // debugger
     // console.log(changes);
   }
 
