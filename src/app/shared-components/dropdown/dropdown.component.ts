@@ -14,19 +14,33 @@ export class DropdownComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    // debugger
+    if (typeof this.selectedItem === 'undefined' || !this.selectedItem) {
+      this.selectedItem = 'Select an option';
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // debugger
     // console.log(changes);
   }
 
-  onItemSelected(item) {
-    this.itemSelect.emit(item);
+  onBlurred(flag) {
+    if (flag === true) {
+      this._toggleOptions(flag);
+    }
   }
 
-  toggleOptions(flag) {
+  onDropdownTriggerClicked(flag) {
+    this._toggleOptions(flag);
+  }
+
+  onItemSelected(item, flag) {
+    if (item.disabled !== true) {
+      this._toggleOptions(flag);
+      this.itemSelect.emit(item);
+    }
+  }
+
+  _toggleOptions(flag) {
     this.isOpen = !flag;
   }
 }

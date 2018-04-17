@@ -12,7 +12,9 @@ import { AppStateService } from '../../services/app-state.service';
 })
 export class ShopItemPageComponent implements OnInit, OnDestroy {
   currentShoppingItem: any = null;
+  currentShoppingItemAvaiableSizes;
   currentShoppingItemSize = '';
+  currentShoppingItemSizeError = '';
   urlShoppingItemId: number;
 
   constructor(
@@ -35,7 +37,8 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
 
   addItemToShoppingCart({id, name, coverImage, price}): string {
     if (this.currentShoppingItemSize === '') {
-      return 'error';
+      this.currentShoppingItemSizeError = 'Size should be selected';
+      return;
     }
 
     const cartShoppingItem = {
@@ -55,9 +58,32 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
     this.shoppingItemsService.shoppingItem.subscribe(shoppingItem => {
       if (shoppingItem !== null && this.urlShoppingItemId === shoppingItem.id) {
         this.appStateService.changeSelectedItemName(shoppingItem.name);
+        this.currentShoppingItemAvaiableSizes = this.mapDropdownItems(shoppingItem);
         this.currentShoppingItem = shoppingItem;
       }
     });
+  }
+
+  mapDropdownItems(shoppingItem) {
+    const sizes = shoppingItem.sizes.map(item => {
+      const mappedItem = {
+        label: item.size,
+        value: item.size
+      };
+
+      if (item.quantity <= 0) {
+        mappedItem['disabled'] = true;
+      }
+
+      return mappedItem;
+    });
+
+    return sizes;
+  }
+
+  onCurrentShoppingItemSizeSelected(size) {
+    this.currentShoppingItemSizeError = '';
+    this.currentShoppingItemSize = size.value;
   }
 
   onSizeClicked(event) {

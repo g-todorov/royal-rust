@@ -1,10 +1,13 @@
 <!-- TODO Find a cleaner solution for detencting blur instead of using tabindex -->
-<div class="dropdown" tabindex="0" (blur)="toggleOptions(isOpen)">
-  <div class="selected-item" (click)="toggleOptions(isOpen)">
+<div class="dropdown" tabindex="-1" (blur)="onBlurred(isOpen)">
+  <div class="selected-item" (click)="onDropdownTriggerClicked(isOpen)">
     {{selectedItem}}
   </div>
   <div class="items-wrapper" *ngIf="isOpen">
-    <div class="item" [ngClass]="{'selected': selectedItem === item.value}" *ngFor="let item of items" (click)="onItemSelected(item)">
+    <div class="item"
+      [ngClass]="{'selected': selectedItem === item.value, 'disabled': item.disabled === true}"
+      *ngFor="let item of items"
+      (click)="onItemSelected(item, isOpen)">
       {{item.label}}
     </div>
   </div>

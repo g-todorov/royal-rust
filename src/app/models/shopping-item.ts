@@ -1,6 +1,7 @@
 export class ShoppingItem {
-  id: number;
-  name: string;
+  count: number;
   coverImage: string;
   description: string;
+  id: number;
+  name: string;
 }

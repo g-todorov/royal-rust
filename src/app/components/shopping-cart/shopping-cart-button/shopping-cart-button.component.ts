@@ -28,7 +28,11 @@ export class ShoppingCartButtonComponent implements OnInit {
 
   ngOnInit() {
     this.shoppingCartService.shoppingCartItems.subscribe((shoppingCartItems: ShoppingItem[]) => {
-      this.shoppingCartItemsCount = shoppingCartItems.length;
+      this.shoppingCartItemsCount = shoppingCartItems.reduce((summedCount, currentValue) => {
+        return summedCount + currentValue.count;
+      },
+      0
+    );
     });
   }
 

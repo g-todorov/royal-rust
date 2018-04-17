@@ -1,6 +1,7 @@
 @import 'variables'
 
 .dropdown
+  position relative
   width 100%
 
   .selected-item
@@ -8,12 +9,19 @@
     cursor pointer
 
   .items-wrapper
+    background grey
     position absolute
-    background black
+    width 100%
 
     .item
       &.selected
         background green
+
+      &.disabled
+        background black
+
+        &:hover
+          cursor not-allowed
 
       &:hover
         background: red

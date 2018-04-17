@@ -1,0 +1,10 @@
+<div class="quantity-counter">
+  <div class="current-quantity">
+    {{currentQuantity}}
+  </div>
+  <div class="quantity-editor">
+    <div class="add" (click)="onQuantityIncreased(currentQuantity)">+</div>
+    <div class="divider">/</div>
+    <div class="remove" (click)="onQuantityDecreased(currentQuantity)">-</div>
+  </div>
+</div>

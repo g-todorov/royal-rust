@@ -50,7 +50,7 @@ export class ShoppingCartContentComponent implements OnInit {
 
   calculateSubtotal(items): number {
     const subtotal = items.reduce((sum, currentValue) => {
-        return sum + currentValue.count * parseInt(currentValue.price);
+        return sum + currentValue.count * parseInt(currentValue.price, 10);
       },
       0
     );

@@ -30,7 +30,7 @@ import { BreadcrumbMenuComponent } from './components/breadcrumb-menu/breadcrumb
 import { ShopItemPageComponent } from './pages/shop-item-page/shop-item-page.component';
 import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 import { DropdownComponent } from './shared-components/dropdown/dropdown.component';
-import { CounterComponent } from './shared-components/counter/counter.component';
+import { QuantityCounterComponent } from './shared-components/counter/quantity-counter.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { CounterComponent } from './shared-components/counter/counter.component'
     ShopItemPageComponent,
     VideosPageComponent,
     DropdownComponent,
-    CounterComponent
+    QuantityCounterComponent
   ],
   imports: [
     BrowserModule,

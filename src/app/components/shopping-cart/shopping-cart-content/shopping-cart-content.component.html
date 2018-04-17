@@ -15,9 +15,9 @@
                   <app-dropdown [selectedItem]="item.size" [items]="shoppingCartItemSizes" (itemSelect)="onShoppingItemSizeSelected($event, item)">
                   </app-dropdown>
                 </div>
-                <div class="count">
-                  <app-counter [currentCount]="item.count" (countChange)="onShoppingItemCountChanged($event, item)">
-                  </app-counter>
+                <div class="quantity">
+                  <app-quantity-counter [currentQuantity]="item.count" (quantityChange)="onShoppingItemCountChanged($event, item)">
+                  </app-quantity-counter>
                 </div>
                 <div class="price">
                   {{item.count * item.price}}
