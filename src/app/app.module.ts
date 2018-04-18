@@ -31,6 +31,7 @@ import { ShopItemPageComponent } from './pages/shop-item-page/shop-item-page.com
 import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 import { DropdownComponent } from './shared-components/dropdown/dropdown.component';
 import { QuantityCounterComponent } from './shared-components/counter/quantity-counter.component';
+import { ScrollEventDirective } from './directives/scroll-event.directive';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { QuantityCounterComponent } from './shared-components/counter/quantity-c
     ShopItemPageComponent,
     VideosPageComponent,
     DropdownComponent,
-    QuantityCounterComponent
+    QuantityCounterComponent,
+    ScrollEventDirective
   ],
   imports: [
     BrowserModule,

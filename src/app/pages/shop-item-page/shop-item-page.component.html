@@ -1,12 +1,12 @@
 <div class="shop-item-page">
   <!-- <div class="shop-page-overflow" [@pageLoadingState]="getPageState()"></div> -->
-  <div class="shop-item-page-overflow">
-    <div class="shop-item-page-content">
-      <div class="shopping-item" *ngIf="currentShoppingItem; else loading">
+  <div class="shop-item-page-overflow" *ngIf="currentShoppingItem; else loading">
+    <div appScrollEvent class="shop-item-page-content">
+      <div class="shopping-item">
         <div class="shopping-item-images-wrapper">
           <div class="shopping-item-images">
-            <img [src]="currentShoppingItem.coverImage">
-            <img *ngFor="let item of currentShoppingItem.descriptionImages" [src]="item">
+            <img [src]="currentShoppingItem.coverImage" #image>
+            <img *ngFor="let item of currentShoppingItem.descriptionImages; let i = index" [src]="item" #image>
           </div>
         </div>
         <div class="shopping-item-details-wrapper">

@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, Params} from '@angular/router';
+import { Component, OnInit, OnDestroy, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingItemsService } from '../../services/shopping-items.service';
@@ -10,7 +10,11 @@ import { AppStateService } from '../../services/app-state.service';
   templateUrl: './shop-item-page.component.html',
   styleUrls: ['./shop-item-page.component.styl']
 })
-export class ShopItemPageComponent implements OnInit, OnDestroy {
+export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChildren('image') images: QueryList<any>;
+
+  imageRefs: ElementRef[] = [];
+
   currentShoppingItem: any = null;
   currentShoppingItemAvaiableSizes;
   currentShoppingItemSize = '';
@@ -33,6 +37,14 @@ export class ShopItemPageComponent implements OnInit, OnDestroy {
       this.urlShoppingItemId = +params.id;
       this.getShoppingItems(params.id);
     });
+  }
+
+  ngAfterViewInit() {
+    // debugger
+    // this.images.changes.subscribe((images) => {
+    //   this.imageRefs = images.toArray();
+    //   debugger
+    // });
   }
 
   addItemToShoppingCart({id, name, coverImage, price}): string {
