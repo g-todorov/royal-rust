@@ -1,45 +1,47 @@
 <div class="shop-item-page">
   <!-- <div class="shop-page-overflow" [@pageLoadingState]="getPageState()"></div> -->
-  <div class="shop-item-page-overflow" *ngIf="currentShoppingItem; else loading">
-    <div appScrollEvent (scrollItemChange)="onItemScrolled($event)" class="shop-item-page-content">
-      <div class="shopping-item">
-        <div class="shopping-item-images-wrapper">
-          <div class="shopping-item-images">
-            <img [src]="currentShoppingItem.coverImage" #image>
-            <img *ngFor="let item of currentShoppingItem.descriptionImages; let i = index" [src]="item" #image>
+  <div class="shop-item-page-overflow">
+    <div class="shop-item-page-content" *ngIf="currentShoppingItem; else loading">
+      <div class="left-side">
+        <div appScrollEvent [scrollItemSelector]='img' (scrollItemChange)="onItemScrolled($event)" class="shopping-item-images-wrapper">
+            <div class="shopping-item-images">
+              <img class="details-image" [src]="currentShoppingItem.coverImage" #image>
+              <img class="details-image" *ngFor="let item of currentShoppingItem.descriptionImages" [src]="item" #image>
+            </div>
           </div>
-        </div>
+      </div>
+      <div class="right-side">
         <div class="shopping-item-details-wrapper">
-          <div class="shopping-item-details">
-            <div class="description">
-              {{currentShoppingItem.description}}
-            </div>
-            <div class="price">
-              {{currentShoppingItem.price}}
-            </div>
-            <div class="sizes-dropdown">
-              <app-dropdown [selectedItem]="currentShoppingItemSize" [items]="currentShoppingItemAvaiableSizes" (itemSelect)="onCurrentShoppingItemSizeSelected($event)">
-              </app-dropdown>
-            </div>
-            <div *ngIf="currentShoppingItemSizeError" class="size-error">
-              {{currentShoppingItemSizeError}}
-            </div>
-            <div class="add-to-cart-button" (click)="addItemToShoppingCart(currentShoppingItem)">
-              Add to Cart
-            </div>
-            <div class="image-slider">
-              <div class="slider-button" [ngClass]="{'selected': scrolledImageIndex === i}" *ngFor="let item of [1 , 2, 3, 4]; let i = index" (click)="moveToElement(i)">
-                {{i}}
+            <div class="shopping-item-details">
+              <div class="description">
+                {{currentShoppingItem.description}}
+              </div>
+              <div class="price">
+                {{currentShoppingItem.price}}
+              </div>
+              <div class="sizes-dropdown">
+                <app-dropdown [selectedItem]="currentShoppingItemSize" [items]="currentShoppingItemAvaiableSizes" (itemSelect)="onCurrentShoppingItemSizeSelected($event)">
+                </app-dropdown>
+              </div>
+              <div *ngIf="currentShoppingItemSizeError" class="size-error">
+                {{currentShoppingItemSizeError}}
+              </div>
+              <div class="add-to-cart-button" (click)="addItemToShoppingCart(currentShoppingItem)">
+                Add to Cart
+              </div>
+              <div class="image-slider">
+                <div class="slider-button" [ngClass]="{'selected': scrolledImageIndex === i}" *ngFor="let item of [1 , 2, 3, 4]; let i = index" (click)="moveToElement(i)">
+                  {{i}}
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
-      <ng-template #loading>
-          <div class="loading-screen">
-            loading...
-          </div>
-      </ng-template>
     </div>
+    <ng-template #loading>
+        <div class="loading-screen">
+          loading...
+        </div>
+    </ng-template>
   </div>
 </div>

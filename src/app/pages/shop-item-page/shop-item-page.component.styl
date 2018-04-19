@@ -3,92 +3,68 @@
 .shop-item-page
   background rebeccapurple
   bottom 0
+  color white
   height 100%
   left 0
+  overflow hidden
   padding $space
   position absolute
   width 100%
-  overflow hidden
 
   .shop-item-page-overflow
     background black
     bottom 0
     left $space
     overflow hidden
-    // overflow-y auto
     position absolute
     right $space
     top 90px
+    padding $space $space 0 $space
 
     .shop-item-page-content
-      bottom 0
-      left 0
-      overflow-y auto
-      padding $space-medium
-      padding-right 2rem
-      position absolute
-      right -17px
-      top 0
-      justify-content center
-      align-items center
+      display flex
+      flex-direction row
+      height 100%
 
-      .shopping-item
-        display flex
+      .left-side
+        flex 1 1 70%
+        overflow hidden
+        position relative
 
         .shopping-item-images-wrapper
-          padding 0
+          height 100%
+          left 0
+          overflow-y auto
+          position absolute
+          right -17px
+          top 0
+
+          .shopping-item-images
+            display flex
+            flex-direction column
+
+            .details-image
+              display block
+
+      .right-side
+        flex 1 1 30%
 
         .shopping-item-details-wrapper
-          .shopping-item-details
-            position sticky
-            top 0
-            color white
+          margin-left $space
 
-          .size-buttons-wrapper
+          .image-slider
             display flex
-            margin-top $space
-            font-size: $font-size-large
-            justify-content: space-around
-
-            .size-button
-              display flex
-              justify-content center
-              flex-grow 1
-
-              &.selected
-                background blue
-
-              &:hover
-                background green
-                cursor pointer
-
-          .add-to-cart-button
-            cursor pointer
-            display flex
-            font-size $font-size-large
             justify-content center
-            margin-top $space
+            flex 1 1 auto
+            width 100px
 
-            &:hover
-              background red
+            .slider-button
+              width 100px
+              cursor pointer
 
-          .price
-            display flex
-            font-size $font-size-large
-            justify-content flex-start
+            .selected
+              color red
 
   .loading-screen
     color white
 
-  .image-slider
-    display flex
-    justify-content center
-    flex 1 1 auto
-    width 100px
-
-    .slider-button
-      width 100px
-      cursor pointer
-
-    .selected
-      color red
