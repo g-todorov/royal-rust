@@ -8,13 +8,14 @@
   padding $space
   position absolute
   width 100%
+  overflow hidden
 
   .shop-item-page-overflow
     background black
     bottom 0
     left $space
     overflow hidden
-    overflow-y auto
+    // overflow-y auto
     position absolute
     right $space
     top 90px
@@ -53,7 +54,7 @@
               display flex
               justify-content center
               flex-grow 1
-              
+
               &.selected
                 background blue
 
@@ -70,7 +71,7 @@
 
             &:hover
               background red
-          
+
           .price
             display flex
             font-size $font-size-large
@@ -78,3 +79,16 @@
 
   .loading-screen
     color white
+
+  .image-slider
+    display flex
+    justify-content center
+    flex 1 1 auto
+    width 100px
+
+    .slider-button
+      width 100px
+      cursor pointer
+
+    .selected
+      color red

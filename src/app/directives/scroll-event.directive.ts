@@ -1,10 +1,11 @@
-import { Directive, AfterViewInit, ElementRef, Renderer2, Input, OnInit, OnChanges } from '@angular/core';
+import { Directive, AfterViewInit, ElementRef, Renderer2, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[appScrollEvent]'
 })
 export class ScrollEventDirective implements OnInit, AfterViewInit, OnChanges {
   @Input() milestoneRefs: [ElementRef];
+  @Output() scrollItemChange = new EventEmitter();
 
   constructor(private element: ElementRef, private renderer: Renderer2) { }
 
@@ -16,11 +17,7 @@ export class ScrollEventDirective implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
-    // console.log(this.milestoneRefs);
-    // debugger
-
     const imageNodes = Array.from(this.element.nativeElement.querySelectorAll('img'));
-    // console.log(imageNodes);
 
     const parentPosition = this.element.nativeElement.getBoundingClientRect();
 
@@ -29,14 +26,15 @@ export class ScrollEventDirective implements OnInit, AfterViewInit, OnChanges {
         return nodeItem.getBoundingClientRect();
       });
 
-      // console.log(this.element.nativeElement.scrollTop);
       const top = parentPosition.top; // + this.element.nativeElement.scrollTop;
       const bottom = parentPosition.bottom; // + this.element.nativeElement.scrollTop;
 
       const index = imageNodesPosition.findIndex(imagePosition => {
         return imagePosition.top < bottom && imagePosition.bottom > top;
       });
-      console.log (index);
+
+      this.scrollItemChange.emit(index);
+
     }, true);
   }
 }

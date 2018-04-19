@@ -14,6 +14,7 @@ export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren('image') images: QueryList<any>;
 
   imageRefs: ElementRef[] = [];
+  scrolledImageIndex = 0;
 
   currentShoppingItem: any = null;
   currentShoppingItemAvaiableSizes;
@@ -40,11 +41,13 @@ export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // debugger
-    // this.images.changes.subscribe((images) => {
-    //   this.imageRefs = images.toArray();
-    //   debugger
-    // });
+    this.images.changes.subscribe((images) => {
+      this.imageRefs = this.images.toArray();
+    });
+  }
+
+  onItemScrolled(index) {
+    this.scrolledImageIndex = index;
   }
 
   addItemToShoppingCart({id, name, coverImage, price}): string {
@@ -100,6 +103,10 @@ export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSizeClicked(event) {
     this.currentShoppingItemSize = event.target.innerText;
+  }
+
+  moveToElement(index) {
+    this.imageRefs[index].nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'});
   }
 
   ngOnDestroy() {

@@ -1,7 +1,7 @@
 <div class="shop-item-page">
   <!-- <div class="shop-page-overflow" [@pageLoadingState]="getPageState()"></div> -->
   <div class="shop-item-page-overflow" *ngIf="currentShoppingItem; else loading">
-    <div appScrollEvent class="shop-item-page-content">
+    <div appScrollEvent (scrollItemChange)="onItemScrolled($event)" class="shop-item-page-content">
       <div class="shopping-item">
         <div class="shopping-item-images-wrapper">
           <div class="shopping-item-images">
@@ -26,6 +26,11 @@
             </div>
             <div class="add-to-cart-button" (click)="addItemToShoppingCart(currentShoppingItem)">
               Add to Cart
+            </div>
+            <div class="image-slider">
+              <div class="slider-button" [ngClass]="{'selected': scrolledImageIndex === i}" *ngFor="let item of [1 , 2, 3, 4]; let i = index" (click)="moveToElement(i)">
+                {{i}}
+              </div>
             </div>
           </div>
         </div>
