@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, AfterContentInit, ViewChildren, ContentChildren, QueryList, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, ContentChildren, ContentChild, QueryList, Output, EventEmitter,
+  ElementRef} from '@angular/core';
 
 import { ShoppingItemImageComponent } from '../shopping-item-image/shopping-item-image.component';
 
@@ -11,7 +12,7 @@ export class ShoppingItemImagesComponent implements OnInit, AfterContentInit {
   @Input() shoppingItem;
   @Output() imagesRefsChanged = new EventEmitter();
 
-  @ContentChildren(ShoppingItemImageComponent) images: QueryList<any>;
+  @ContentChildren(ShoppingItemImageComponent) images: QueryList<ElementRef>;
 
   constructor() { }
 
@@ -20,7 +21,6 @@ export class ShoppingItemImagesComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    debugger
     setTimeout(() => {this.imagesRefsChanged.emit(this.images.toArray()); }, 0);
   }
 

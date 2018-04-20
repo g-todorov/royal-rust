@@ -32,6 +32,8 @@ import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 import { DropdownComponent } from './shared-components/dropdown/dropdown.component';
 import { QuantityCounterComponent } from './shared-components/counter/quantity-counter.component';
 import { ScrollEventDirective } from './directives/scroll-event.directive';
+import { ShoppingItemImagesComponent } from './pages/shop-item-page/shopping-item-images/shopping-item-images.component';
+import { ShoppingItemImageComponent } from './pages/shop-item-page/shopping-item-image/shopping-item-image.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ScrollEventDirective } from './directives/scroll-event.directive';
     VideosPageComponent,
     DropdownComponent,
     QuantityCounterComponent,
-    ScrollEventDirective
+    ScrollEventDirective,
+    ShoppingItemImagesComponent,
+    ShoppingItemImageComponent
   ],
   imports: [
     BrowserModule,

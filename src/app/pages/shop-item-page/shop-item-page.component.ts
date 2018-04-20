@@ -1,19 +1,19 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingItemsService } from '../../services/shopping-items.service';
 import { AppStateService } from '../../services/app-state.service';
 
+import { ShoppingItemImageComponent } from './shopping-item-image/shopping-item-image.component';
+
 @Component({
   selector: 'app-shop-item-page',
   templateUrl: './shop-item-page.component.html',
   styleUrls: ['./shop-item-page.component.styl']
 })
-export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChildren('image') images: QueryList<any>;
-
-  imageRefs: ElementRef[] = [];
+export class ShopItemPageComponent implements OnInit, OnDestroy {
+  imageRefs: ShoppingItemImageComponent[] = [];
   scrolledImageIndex = 0;
 
   currentShoppingItem: any = null;
@@ -37,12 +37,6 @@ export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
     const routerSubscription = this.route.params.subscribe(params => {
       this.urlShoppingItemId = +params.id;
       this.getShoppingItems(params.id);
-    });
-  }
-
-  ngAfterViewInit() {
-    this.images.changes.subscribe((images) => {
-      this.imageRefs = this.images.toArray();
     });
   }
 
@@ -106,7 +100,11 @@ export class ShopItemPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   moveToElement(index) {
-    this.imageRefs[index].nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'});
+    this.imageRefs[index].element.nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'});
+  }
+
+  onImageRefsChanged(refs) {
+    this.imageRefs = refs;
   }
 
   ngOnDestroy() {
