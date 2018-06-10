@@ -17,19 +17,19 @@ export class BreadcrumbMenuComponent implements OnInit {
   constructor(private appStateService: AppStateService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.appStateService.changeSelectedItemState.subscribe(name => {
+    this.appStateService.selectedItemName.subscribe(name => {
       this.selectedItemName = name;
     });
 
-    this.appStateService.changeSelectedMenuItemState.subscribe(name => {
+    this.appStateService.selectedMenuItemName.subscribe(name => {
       this.selectedMenuItemName = name;
     });
 
-    this.appStateService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.hamburgerMenuState.subscribe(state => {
       this.hamburgerMenuContentState = state;
     });
 
-    this.appStateService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.shoppingCartMenuState.subscribe(state => {
       this.shoppingCartState = state;
     });
   }

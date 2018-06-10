@@ -15,11 +15,11 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private appStateService: AppStateService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
-    this.appStateService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.shoppingCartMenuState.subscribe(state => {
       this.shoppingCartContentState = state;
     });
 
-    this.appStateService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.hamburgerMenuState.subscribe(state => {
       this.hamburgerMenuContentState = state;
     });
   }

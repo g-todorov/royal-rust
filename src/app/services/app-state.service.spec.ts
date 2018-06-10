@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AnimationsService } from './animations.service';
+import { AppStateService } from './app-state.service';
 
-describe('AnimationsService', () => {
+describe('AppStateService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AnimationsService]
+      providers: [AppStateService]
     });
   });
 
-  it('should be created', inject([AnimationsService], (service: AnimationsService) => {
+  it('should be created', inject([AppStateService], (service: AppStateService) => {
     expect(service).toBeTruthy();
   }));
 });

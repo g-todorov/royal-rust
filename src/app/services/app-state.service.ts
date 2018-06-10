@@ -1,45 +1,45 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AppStateService {
-  hamburgerMenuState = 'closed';
-  shoppingCartMenuState = 'closed';
-  selectedItemName = '';
-  selectedMenuItemName = '';
+
+  private sourceHamburgerMenuState = new BehaviorSubject('closed');
+  hamburgerMenuState = this.sourceHamburgerMenuState.asObservable();
+
+  private sourceShoppingCartMenuState = new BehaviorSubject('closed');
+  shoppingCartMenuState = this.sourceShoppingCartMenuState.asObservable();
+
+  private sourceSelectedItemName = new BehaviorSubject('');
+  selectedItemName = this.sourceSelectedItemName.asObservable();
+
+  private sourceSelectedMenuItemName = new BehaviorSubject('');
+  selectedMenuItemName = this.sourceSelectedMenuItemName.asObservable();
 
   constructor() { }
 
-  @Output() changeHamburgerMenuState: EventEmitter<string> = new EventEmitter();
-  @Output() changeShoppingCartState: EventEmitter<string> = new EventEmitter();
-  @Output() changeSelectedItemState: EventEmitter<string> = new EventEmitter();
-  @Output() changeSelectedMenuItemState: EventEmitter<string> = new EventEmitter();
-
   toggleHamburgerMenuState(state) {
     if (state === 'closed') {
-      this.hamburgerMenuState = 'opened';
+      this.sourceHamburgerMenuState.next('opened');
     } else if (state === 'opened') {
-      this.hamburgerMenuState = 'closed';
+      this.sourceHamburgerMenuState.next('closed');
     }
-    this.changeHamburgerMenuState.emit(this.hamburgerMenuState);
   }
 
   toggleShoppingCartState(state) {
     if (state === 'closed') {
-      this.shoppingCartMenuState = 'opened';
+      this.sourceShoppingCartMenuState.next('opened');
     } else if (state === 'opened') {
-      this.shoppingCartMenuState = 'closed';
+      this.sourceShoppingCartMenuState.next('closed');
     }
-    this.changeShoppingCartState.emit(this.shoppingCartMenuState);
   }
 
   changeSelectedItemName(name) {
-    this.selectedItemName = name;
-    this.changeSelectedItemState.emit(this.selectedItemName);
+    this.sourceSelectedItemName.next(name);
   }
 
   changeSelectedMenuItemName(name) {
-    this.selectedMenuItemName = name;
-    this.changeSelectedMenuItemState.emit(this.selectedMenuItemName);
+    this.sourceSelectedMenuItemName.next(name);
   }
 
   // getPageState() Possible solution for initial page loading

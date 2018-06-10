@@ -31,11 +31,11 @@ export class ShopPageComponent implements OnInit, OnDestroy {
       this.appStateService.changeSelectedMenuItemName(params[0].path);
     });
 
-    this.appStateService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.hamburgerMenuState.subscribe(state => {
       this.hamburgerMenuState = state;
     });
 
-    this.appStateService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.shoppingCartMenuState.subscribe(state => {
       this.shoppingCartMenuState = state;
     });
 

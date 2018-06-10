@@ -32,11 +32,11 @@ export class HamburgerMenuComponent implements OnInit {
       }
     });
 
-    this.appStateService.changeHamburgerMenuState.subscribe(state => {
+    this.appStateService.hamburgerMenuState.subscribe(state => {
       this.hamburgerMenuState = state;
     });
 
-    this.appStateService.changeShoppingCartState.subscribe(state => {
+    this.appStateService.shoppingCartMenuState.subscribe(state => {
       this.shoppingCartState = state;
     });
   }
